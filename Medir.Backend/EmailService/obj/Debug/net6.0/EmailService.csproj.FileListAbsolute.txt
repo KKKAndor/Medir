@@ -1,0 +1,12 @@
+D:\GitHub\Medir\Medir.Backend\EmailService\bin\Debug\net6.0\EmailService.deps.json
+D:\GitHub\Medir\Medir.Backend\EmailService\bin\Debug\net6.0\EmailService.dll
+D:\GitHub\Medir\Medir.Backend\EmailService\bin\Debug\net6.0\EmailService.pdb
+D:\GitHub\Medir\Medir.Backend\EmailService\obj\Debug\net6.0\EmailService.csproj.AssemblyReference.cache
+D:\GitHub\Medir\Medir.Backend\EmailService\obj\Debug\net6.0\EmailService.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\Medir\Medir.Backend\EmailService\obj\Debug\net6.0\EmailService.AssemblyInfoInputs.cache
+D:\GitHub\Medir\Medir.Backend\EmailService\obj\Debug\net6.0\EmailService.AssemblyInfo.cs
+D:\GitHub\Medir\Medir.Backend\EmailService\obj\Debug\net6.0\EmailService.csproj.CoreCompileInputs.cache
+D:\GitHub\Medir\Medir.Backend\EmailService\obj\Debug\net6.0\EmailService.dll
+D:\GitHub\Medir\Medir.Backend\EmailService\obj\Debug\net6.0\refint\EmailService.dll
+D:\GitHub\Medir\Medir.Backend\EmailService\obj\Debug\net6.0\EmailService.pdb
+D:\GitHub\Medir\Medir.Backend\EmailService\obj\Debug\net6.0\ref\EmailService.dll

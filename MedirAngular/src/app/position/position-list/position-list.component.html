@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="offset-10 col-md-2 mt-2"> <a [routerLink]="['/position/position-create']">Создать специальность</a> </div>
+</div> <br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>ID специальности</th>
+          <th>Название специальности</th>
+          <th>Подробности</th>
+          <th>Изменить</th>
+          <th>Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let position of list">
+          <td>{{position.positionId}}</td>
+          <td>{{position.positionName}}</td>
+          <td><button type="button" id="details" class="btn btn-primary"
+                      (click)="getPositionDetails(position.positionId)">Подробности</button></td>
+          <td><button type="button" id="update" class="btn btn-success"
+                      (click)="redirectToPositionUpdatePage(position.positionId)">Изменить</button></td>
+          <td><button type="button" id="delete" class="btn btn-danger"
+                      (click)="redirectToPositionDeletePage(position.positionId)">Удалить</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

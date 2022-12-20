@@ -1,0 +1,59 @@
+<div class="card card-body bg-light mb-2 mt-2">
+  <div class="row">
+    <div class="col-md-3">
+      <strong>ID поликлиники:</strong>
+    </div>
+    <div class="col-md-3">
+      {{item?.polyclinicId}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Название поликлиники:</strong>
+    </div>
+    <div class="col-md-3">
+      {{item?.polyclinicName}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Номер поликлиники:</strong>
+    </div>
+    <div class="col-md-3">
+      {{item?.polyclinicPhoneNumber}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Адрес поликлиники:</strong>
+    </div>
+    <div class="col-md-3">
+      {{item?.polyclinicAddress}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Фото поликлиники:</strong>
+    </div>
+    <div class="col-md-3">
+      {{item?.polyclinicPhoto}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Город:</strong>
+    </div>
+    <div class="col-md-3">
+      {{item?.city?.cityName}}
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="offset-md-3 col-md-1">
+    <button type="submit" class="btn btn-info" (click)="deletePolyclinic()">Удалить</button>
+  </div>
+  <div class="col-md-1">
+    <button type="button" class="btn btn-danger" (click)="redirectToPolyclinicList()">Отмена</button>
+  </div>
+</div>

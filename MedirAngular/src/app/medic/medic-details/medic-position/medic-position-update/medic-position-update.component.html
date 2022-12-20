@@ -1,0 +1,29 @@
+<div class="container-fluid" xmlns="http://www.w3.org/1999/html">
+  <form [formGroup]="form" autocomplete="off" novalidate (ngSubmit)="updateMedicPosition(form.value)">
+    <div class="card card-body bg-light mb-2 mt-2">
+      <div class="mb-3 row">
+        <label for="dateOnPosition" class="col-form-label col-md-2">Дата на позиции: </label>
+        <div class="col-md-5">
+          <input type="text"
+                 formControlName="dateOnPosition"
+                 id="dateOnPosition"
+                 class="form-control"
+                 bsDatepicker/>
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('dateOnPosition')
+          && hasError('dateOnPosition', 'required')">Введите дату становления на специальность</em>
+        </div>
+      </div>
+      <br>
+      <div class="mb-3 row">
+        <div class="offset-5 col-md-1">
+          <button type="submit" class="btn btn-info" [disabled]="!form.valid">Изменить</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-danger" (click)="redirectToMedic()" >Отменить</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

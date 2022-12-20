@@ -1,0 +1,81 @@
+<div class="card card-body bg-light mb-2 mt-2">
+  <div class="row">
+    <div class="col-md-3">
+      <img [src]="createImgPath(item!.medicPhoto)" style="height:300px;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Фото врача:</strong>
+    </div>
+    <div class="col-md-3">
+      {{item?.medicPhoto}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>ID врача:</strong>
+    </div>
+    <div class="col-md-3">
+      {{item?.medicId}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>ФИО врача:</strong>
+    </div>
+    <div class="col-md-3">
+      {{item?.medicFullName}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Краткое описание врача:</strong>
+    </div>
+    <div class="col-md-3">
+      {{item?.shortDescription}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Полное описание врача:</strong>
+    </div>
+    <div class="col-md-3">
+      {{item?.fullDescription}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Номер врача:</strong>
+    </div>
+    <div class="col-md-3">
+      {{item?.medicPhoneNumber}}
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Специальности врача:</strong>
+    </div>
+    <app-medic-position-list [id]=item!.medicId></app-medic-position-list>
+    <div class="col-md-3">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Поликлиники врача:</strong>
+    </div>
+    <app-medic-polyclinic-list [id]=item!.medicId></app-medic-polyclinic-list>
+    <div class="col-md-3">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Приемы врача:</strong>
+    </div>
+    <app-medic-availability-list [id]=item!.medicId></app-medic-availability-list>
+    <div class="col-md-3">
+    </div>
+  </div>
+</div>

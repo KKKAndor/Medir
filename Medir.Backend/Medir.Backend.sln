@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{200820B1-BF47-4F44-B114-88C3DD3673F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infastructure", "Infastructure", "{C16474ED-522F-4581-A861-C25E152BCFB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{B7004BB7-799E-48ED-9DB3-6D50081A3BD8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medir.Application", "Medir.Application\Medir.Application.csproj", "{5ED68402-372F-4CBE-8D0D-A7F06100C0E4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medir.Persistence", "Medir.Persistence\Medir.Persistence.csproj", "{7D5080DF-F2E1-4B56-B3B9-5BC6AB2C9E21}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medir.WebApi", "Medir.WebApi\Medir.WebApi.csproj", "{0107F7B8-F3BB-406B-9281-9452C9D76772}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medir.Domain", "Medir.Domain\Medir.Domain.csproj", "{2DC48A99-B97E-436E-AE37-1B6100BDA861}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmailService", "EmailService", "{890BF6AE-0720-4190-9201-CA267D4F5869}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{CBCABBFE-D8A5-4EBE-8DC1-E2BD7CBE5033}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5ED68402-372F-4CBE-8D0D-A7F06100C0E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ED68402-372F-4CBE-8D0D-A7F06100C0E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ED68402-372F-4CBE-8D0D-A7F06100C0E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ED68402-372F-4CBE-8D0D-A7F06100C0E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D5080DF-F2E1-4B56-B3B9-5BC6AB2C9E21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D5080DF-F2E1-4B56-B3B9-5BC6AB2C9E21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D5080DF-F2E1-4B56-B3B9-5BC6AB2C9E21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D5080DF-F2E1-4B56-B3B9-5BC6AB2C9E21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0107F7B8-F3BB-406B-9281-9452C9D76772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0107F7B8-F3BB-406B-9281-9452C9D76772}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0107F7B8-F3BB-406B-9281-9452C9D76772}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0107F7B8-F3BB-406B-9281-9452C9D76772}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DC48A99-B97E-436E-AE37-1B6100BDA861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DC48A99-B97E-436E-AE37-1B6100BDA861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DC48A99-B97E-436E-AE37-1B6100BDA861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DC48A99-B97E-436E-AE37-1B6100BDA861}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBCABBFE-D8A5-4EBE-8DC1-E2BD7CBE5033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCABBFE-D8A5-4EBE-8DC1-E2BD7CBE5033}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCABBFE-D8A5-4EBE-8DC1-E2BD7CBE5033}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCABBFE-D8A5-4EBE-8DC1-E2BD7CBE5033}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5ED68402-372F-4CBE-8D0D-A7F06100C0E4} = {200820B1-BF47-4F44-B114-88C3DD3673F4}
+		{7D5080DF-F2E1-4B56-B3B9-5BC6AB2C9E21} = {C16474ED-522F-4581-A861-C25E152BCFB4}
+		{0107F7B8-F3BB-406B-9281-9452C9D76772} = {B7004BB7-799E-48ED-9DB3-6D50081A3BD8}
+		{2DC48A99-B97E-436E-AE37-1B6100BDA861} = {200820B1-BF47-4F44-B114-88C3DD3673F4}
+		{CBCABBFE-D8A5-4EBE-8DC1-E2BD7CBE5033} = {890BF6AE-0720-4190-9201-CA267D4F5869}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {042ED9EF-DE41-4C7F-A89D-CD320CF73FE0}
+	EndGlobalSection
+EndGlobal

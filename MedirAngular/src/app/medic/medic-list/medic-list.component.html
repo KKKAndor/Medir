@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="offset-10 col-md-2 mt-2"> <a [routerLink]="['/medic/medic-create']">Создать врача</a> </div>
+</div> <br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>ID врача</th>
+          <th>ФИО врача</th>
+          <th>Краткое описание</th>
+          <th>Подробности</th>
+          <th>Изменить</th>
+          <th>Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let medic of list">
+          <td>{{medic.medicId}}</td>
+          <td>{{medic.medicFullName}}</td>
+          <td>{{medic.shortDescription}}</td>
+          <td><button type="button" id="details" class="btn btn-primary"
+                      (click)="getMedicDetails(medic.medicId)">Подробности</button></td>
+          <td><button type="button" id="update" class="btn btn-success"
+                      (click)="redirectToMedicUpdatePage(medic.medicId)">Изменить</button></td>
+          <td><button type="button" id="delete" class="btn btn-danger"
+                      (click)="redirectToMedicDeletePage(medic.medicId)">Удалить</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

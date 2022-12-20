@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="offset-10 col-md-2 mt-2"> <button class="btn btn-success" (click)="createMedicPolyclinicPage()">Добавить поликлинику врачу</button> </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Поликлиника</th>
+          <th>Цена приема</th>
+          <th>Подробности</th>
+          <th>Изменить</th>
+          <th>Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let medic of list">
+          <td>{{medic.polyclinicName}}</td>
+          <td>{{medic.price}}</td>
+          <td><button type="button" id="details" class="btn btn-primary"
+                      (click)="getMedicPolyclinicDetails(medic.polyclinicId)">Подробности</button></td>
+          <td><button type="button" id="update" class="btn btn-success"
+                      (click)="redirectToMedicPolyclinicUpdatePage(medic.polyclinicId)">Изменить</button></td>
+          <td><button type="button" id="delete" class="btn btn-danger"
+                      (click)="redirectToMedicPolyclinicDeletePage(medic.polyclinicId)">Удалить</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+

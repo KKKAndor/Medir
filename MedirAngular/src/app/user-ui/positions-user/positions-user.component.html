@@ -1,0 +1,25 @@
+<div class="card card-body bg-light mb-2 mt-2">
+  <div class="mb-3 row" >
+    <label for="cityId" class="col-form-label col-md-2">Город: </label>
+    <div class="col-md-5">
+      <select (change)="cityChanged($event)" id="cityId" class="form-control">
+        <option value="undefined">Все города</option>
+        <option *ngFor="let cityLookUpDto of citiesList" [value]="cityLookUpDto.cityId">
+          {{cityLookUpDto.cityName}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <mat-grid-list [cols]="4" rowHeight="100px">
+      <mat-grid-tile *ngFor="let positionForUserLookUpDto of positionsList" (click)="positionSelected(positionForUserLookUpDto.positionId)">
+        <div>
+          <button class="btn btn-success">
+            <h5 style="font-size: 20px">{{positionForUserLookUpDto.positionName}}:</h5>
+            <h6 style="font-size: 18px">{{positionForUserLookUpDto.medicCount}} - врачей</h6>
+          </button>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

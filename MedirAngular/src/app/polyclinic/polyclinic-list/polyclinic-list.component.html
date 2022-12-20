@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="offset-10 col-md-2 mt-2"> <a [routerLink]="['/polyclinic/polyclinic-create']">Создать поликлинику</a> </div>
+</div> <br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>ID поликлиники</th>
+          <th>Название поликлиники</th>
+          <th>Адрес поликлиники</th>
+          <th>Подробности</th>
+          <th>Изменить</th>
+          <th>Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let polyclinic of list">
+          <td>{{polyclinic.polyclinicId}}</td>
+          <td>{{polyclinic.polyclinicName}}</td>
+          <td>{{polyclinic.polyclinicAddress}}</td>
+          <td><button type="button" id="details" class="btn btn-primary"
+                      (click)="getPolyclinicDetails(polyclinic.polyclinicId)">Подробности</button></td>
+          <td><button type="button" id="update" class="btn btn-success"
+                      (click)="redirectToPolyclinicUpdatePage(polyclinic.polyclinicId)">Изменить</button></td>
+          <td><button type="button" id="delete" class="btn btn-danger"
+                      (click)="redirectToPolyclinicDeletePage(polyclinic.polyclinicId)">Удалить</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Дата</th>
+          <th>Время</th>
+          <th>ФИО врача</th>
+          <th>Специальность</th>
+          <th>Город</th>
+          <th>Поликлиника</th>
+          <th>Адрес</th>
+          <th>Цена</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let appointmentLookUpDto of appointments">
+          <td>{{appointmentLookUpDto.date | date : 'shortDate'}}</td>
+          <td>{{appointmentLookUpDto.time | date : 'shortTime'}}</td>
+          <td>{{appointmentLookUpDto.medicFullName}}</td>
+          <td>{{appointmentLookUpDto.positionName}}</td>
+          <td>{{appointmentLookUpDto.cityName}}</td>
+          <td>{{appointmentLookUpDto.polyclinicName}}</td>
+          <td>{{appointmentLookUpDto.polyclinicAddress}}</td>
+          <td>{{appointmentLookUpDto.price}} р.</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,577 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Medir.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.CitiesController.GetAllCities">
+            <summary>
+            Gets the list of Cities
+            </summary>
+            <remarks>
+            Sample request:
+            GET /Cities
+            </remarks>
+            <returns>Returns CitiesListVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.CitiesController.GetCity(System.Guid)">
+            <summary>
+            Gets the City by id
+            </summary>
+            <remarks>
+            Sample request:
+            GET /Cities/45B336E1-D01D-4C4F-9A83-58E60E65C2BE
+            </remarks>
+            <param name="CityId">City id (Guid)</param>
+            <returns>Returns CityDetailsVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.CitiesController.CreateCity(Medir.WebApi.Areas.Administrator.Models.Cities.CreateCityDto)">
+            <summary>
+            Creates the City
+            </summary> 
+            <remarks>
+            Sample request:
+            POST /Cities
+            {       
+                "CityName": "Gregory Hous city"
+            }
+            </remarks>
+            <param name="createCityDto">createCityDto object</param>
+            <returns>Returns id (Guid)</returns>
+            <response code="201">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.CitiesController.UpdateCity(Medir.WebApi.Areas.Administrator.Models.Cities.UpdateCityDto)">
+            <summary>
+            Updates the City
+            </summary>
+            <remarks>
+            Sample request:
+            PUT /Cities
+            {
+                "CityId": "45B336E1-D01D-4C4F-9A83-58E60E65C2BE"
+                "CityName": "Gregory Hous city"
+            }
+            </remarks> 
+            <param name="updateCityDto">UpdateCityDto object</param>
+            <returns>Returns NoContent</returns>
+            <response code="204">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.CitiesController.DeleteCity(System.Guid)">
+            <summary>
+            Deletes  the City
+            </summary>
+            /// <remarks>
+            Sample request:
+            Delete /Cities/45B336E1-D01D-4C4F-9A83-58E60E65C2BE
+            </remarks>
+            <param name="CityId">City id (Guid)</param>
+            <returns>Returns NoContent</returns>
+            <response code="204">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicAvailabilityController.GetMedicAvailabilitiesList(Medir.Application.MedicAvailabilities.Queries.GetMedicAvailabilityList.GetMedicAvailabilityListQuery)">
+            <summary>
+            Gets the list of MedicAvailabiltyOnDay
+            </summary>
+            <remarks>
+            Sample request:
+            GET /MedicAvailabilty
+            </remarks>
+            <returns>Returns MedicAvailabiltyOnDayVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicAvailabilityController.CreateMedicAvailability(Medir.WebApi.Areas.Administrator.Models.MedicAvailabilities.CreateMedicAvailabilityDto)">
+            <summary>
+            Creates the MedicAvailability
+            </summary> 
+            <remarks>
+            Sample request:
+            POST /MedicAvailability
+            </remarks>
+            <param name="CreateMedicAvailabilityDto">CreateMedicAvailabilityDto object</param>
+            <returns>Returns id (Guid)</returns>
+            <response code="201">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicAvailabilityController.DeleteMedicAvailability(Medir.Application.MedicAvailabilities.Command.DeleteMedicAvailability.DeleteMedicAvailabilityCommand)">
+            <summary>
+            Delete the MedicAvailability
+            </summary> 
+            <remarks>
+            Sample request:
+            DELETE /MedicAvailability
+            </remarks>
+            <param name="DeleteMedicAvailabilityCommand">DeleteMedicAvailabilityCommand object</param>
+            <returns>Returns id (Guid)</returns>
+            <response code="201">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicPolyclinicsController.GetAllMedicPolyclinics(System.Guid)">
+            <summary>
+            Gets the list of MedicPolyclinics
+            </summary>
+            <remarks>
+            Sample request:
+            GET /MedicPolyclinics
+            </remarks>
+            <returns>Returns MedicPolyclinicsListVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicPolyclinicsController.GetMedicPolyclinic(Medir.Application.MedicPolyclinics.Queries.GetMedicPolyclinicDetails.GetMedicPolyclinicDetailsQuery)">
+            <summary>
+            Gets the MedicPolyclinic by id
+            </summary>
+            <remarks>
+            Sample request:
+            GET /MedicPolyclinics/45B336E1-D01D-4C4F-9A83-58E60E65C2BE
+            </remarks>
+            <param name="GetMedicPolyclinicDetailsQuery">MedicPolyclinic id (Guid)</param>
+            <returns>Returns MedicPolyclinicDetailsVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicPolyclinicsController.CreateMedicPolyclinic(Medir.WebApi.Areas.Administrator.Models.MedicPolyclinics.CreateMedicPolyclinicDto)">
+            <summary>
+            Creates the MedicPolyclinic
+            </summary> 
+            <remarks>
+            Sample request:
+            POST /MedicPolyclinics
+            {
+                "MedicId": "45B336E1-D01D-4C4F-9A83-58E60E65C2BE",
+                "PolyclinicId": "45B336E1-D01D-4C4F-9A83-58E60E65C2BE",
+                "Price": "200"
+            }
+            </remarks>
+            <param name="createMedicPolyclinicDto">createMedicPolyclinicDto object</param>
+            <returns>Returns id (Guid)</returns>
+            <response code="201">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicPolyclinicsController.UpdateMedicPolyclinic(Medir.WebApi.Areas.Administrator.Models.MedicPolyclinics.UpdateMedicPolyclinicDto)">
+            <summary>
+            Updates the MedicPolyclinic
+            </summary>
+            <remarks>
+            Sample request:
+            PUT /MedicPolyclinics
+            {
+                "MedicId": "45B336E1-D01D-4C4F-9A83-58E60E65C2BE",
+                "PolyclinicId": "45B336E1-D01D-4C4F-9A83-58E60E65C2BE",
+                "Price": "200"
+            }
+            </remarks> 
+            <param name="updateMedicPolyclinicDto">UpdateMedicPolyclinicDto object</param>
+            <returns>Returns NoContent</returns>
+            <response code="204">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicPolyclinicsController.DeleteMedicPolyclinic(Medir.Application.MedicPolyclinics.Commands.DeleteMedicPolyclinic.DeleteMedicPolyclinicCommand)">
+            <summary>
+            Deletes  the MedicPolyclinic
+            </summary>
+            /// <remarks>
+            Sample request:
+            Delete /MedicPolyclinics/45B336E1-D01D-4C4F-9A83-58E60E65C2BE
+            </remarks>
+            <param name="DeleteMedicPolyclinicCommand">MedicPolyclinic id (Guid)</param>
+            <returns>Returns NoContent</returns>
+            <response code="204">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicPositionsController.GetAllMedicPositions(System.Guid)">
+            <summary>
+            Gets the list of MedicPositions
+            </summary>
+            <remarks>
+            Sample request:
+            GET /MedicPositions
+            </remarks>
+            <returns>Returns MedicPositionsListVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicPositionsController.GetMedicPosition(Medir.Application.MedicPositions.Queries.GetMedicPositionDetails.GetMedicPositionDetailsQuery)">
+            <summary>
+            Gets the MedicPosition by id
+            </summary>
+            <remarks>
+            Sample request:
+            GET /MedicPositions/45B336E1-D01D-4C4F-9A83-58E60E65C2BE
+            </remarks>
+            <param name="GetMedicPositionDetailsQuery">MedicPosition id (Guid)</param>
+            <returns>Returns MedicPositionDetailsVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicPositionsController.CreateMedicPosition(Medir.WebApi.Areas.Administrator.Models.MedicPositions.CreateMedicPositionDto)">
+            <summary>
+            Creates the MedicPosition
+            </summary> 
+            <remarks>
+            Sample request:
+            POST /MedicPositions
+            {
+                "MedicId": "45B336E1-D01D-4C4F-9A83-58E60E65C2BE",
+                "PolyclinicId": "45B336E1-D01D-4C4F-9A83-58E60E65C2BE",
+                "DateOnPosition": "10-01-1999"
+            }
+            </remarks>
+            <param name="createMedicPositionDto">createMedicPositionDto object</param>
+            <returns>Returns id (Guid)</returns>
+            <response code="201">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicPositionsController.UpdateMedicPosition(Medir.WebApi.Areas.Administrator.Models.MedicPositions.UpdateMedicPositionDto)">
+            <summary>
+            Updates the MedicPosition
+            </summary>
+            <remarks>
+            Sample request:
+            PUT /MedicPositions
+            {
+                "MedicId": "45B336E1-D01D-4C4F-9A83-58E60E65C2BE",
+                "PolyclinicId": "45B336E1-D01D-4C4F-9A83-58E60E65C2BE",
+                "DateOnPosition": "10-01-1999"
+            }
+            </remarks> 
+            <param name="updateMedicPositionDto">UpdateMedicPositionDto object</param>
+            <returns>Returns NoContent</returns>
+            <response code="204">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicPositionsController.DeleteMedicPosition(Medir.Application.MedicPositions.Commands.DeleteMedicPosition.DeleteMedicPositionCommand)">
+            <summary>
+            Deletes  the MedicPosition
+            </summary>
+            /// <remarks>
+            Sample request:
+            Delete /MedicPositions/45B336E1-D01D-4C4F-9A83-58E60E65C2BE
+            </remarks>
+            <param name="DeleteMedicPositionCommand">MedicPosition id (Guid)</param>
+            <returns>Returns NoContent</returns>
+            <response code="204">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicsController.GetAllMedics">
+            <summary>
+            Gets the list of Medics
+            </summary>
+            <remarks>
+            Sample request:
+            GET /Medics
+            </remarks>
+            <returns>Returns MedicsListVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicsController.GetMedic(System.Guid)">
+            <summary>
+            Gets the Medic by id
+            </summary>
+            <remarks>
+            Sample request:
+            GET /Medics/45B336E1-D01D-4C4F-9A83-58E60E65C2BE
+            </remarks>
+            <param name="MedicId">Medic id (Guid)</param>
+            <returns>Returns MedicDetailsVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicsController.CreateMedic(Medir.WebApi.Areas.Administrator.Models.Medics.CreateMedicDto)">
+            <summary>
+            Creates the Medic
+            </summary> 
+            <remarks>
+            Sample request:
+            POST /Medics
+            {       
+                "MedicFullName": "Gregory Hous",
+                "ShortDescription": "The best doctor",
+                "FullDescription": "Yeap, the best",
+                "MedicPhoneNumber": "88002000122",,
+                "MedicPhoto": "PhotoUrl"
+            }
+            </remarks>
+            <param name="createMedicDto">createMedicDto object</param>
+            <returns>Returns id (Guid)</returns>
+            <response code="201">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicsController.UpdateMedic(Medir.WebApi.Areas.Administrator.Models.Medics.UpdateMedicDto)">
+            <summary>
+            Updates the Medic
+            </summary>
+            <remarks>
+            Sample request:
+            PUT /Medics
+            {
+                "MedicId": "45B336E1-D01D-4C4F-9A83-58E60E65C2BE"
+                "MedicFullName": "Gregory Hous",
+                "ShortDescription": "The best doctor",
+                "FullDescription": "I said he is the best, didn't I?",
+                "MedicPhoneNumber": "88002000122",
+                "MedicPhoto": "PhotoUrl"
+            }
+            </remarks> 
+            <param name="updateMedicDto">UpdateMedicDto object</param>
+            <returns>Returns NoContent</returns>
+            <response code="204">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicsController.DeleteMedic(System.Guid)">
+            <summary>
+            Deletes  the Medic
+            </summary>
+            /// <remarks>
+            Sample request:
+            Delete /Medics/45B336E1-D01D-4C4F-9A83-58E60E65C2BE
+            </remarks>
+            <param name="MedicId">Medic id (Guid)</param>
+            <returns>Returns NoContent</returns>
+            <response code="204">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.PolyclinicsController.GetAllPolyclinics">
+            <summary>
+            Gets the list of Polyclinics
+            </summary>
+            <remarks>
+            Sample request:
+            GET /Polyclinics
+            </remarks>
+            <returns>Returns PolyclinicsListVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.PolyclinicsController.GetPolyclinic(System.Guid)">
+            <summary>
+            Gets the Polyclinic by id
+            </summary>
+            <remarks>
+            Sample request:
+            GET /Polyclinics/45B336E1-D01D-4C4F-9A83-58E60E65C2BE
+            </remarks>
+            <param name="PolyclinicId">Polyclinic id (Guid)</param>
+            <returns>Returns PolyclinicDetailsVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.PolyclinicsController.CreatePolyclinic(Medir.WebApi.Areas.Administrator.Models.Polyclinics.CreatePolyclinicDto)">
+            <summary>
+            Creates the Polyclinic
+            </summary> 
+            <remarks>
+            Sample request:
+            POST /Polyclinics
+            {       
+                "PolyclinicName": "Gregory Hous Polyclinic",
+                "PolyclinicPhoto": "PhotoUrl"
+            }
+            </remarks>
+            <param name="createPolyclinicDto">createPolyclinicDto object</param>
+            <returns>Returns id (Guid)</returns>
+            <response code="201">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.PolyclinicsController.UpdatePolyclinic(Medir.WebApi.Areas.Administrator.Models.Polyclinics.UpdatePolyclinicDto)">
+            <summary>
+            Updates the Polyclinic
+            </summary>
+            <remarks>
+            Sample request:
+            PUT /Polyclinics
+            {
+                "PolyclinicId": "45B336E1-D01D-4C4F-9A83-58E60E65C2BE"
+                "PolyclinicName": "Gregory Hous Polyclinic",
+                "PolyclinicPhoto": "PhotoUrl"
+            }
+            </remarks> 
+            <param name="updatePolyclinicDto">UpdatePolyclinicDto object</param>
+            <returns>Returns NoContent</returns>
+            <response code="204">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.PolyclinicsController.DeletePolyclinic(System.Guid)">
+            <summary>
+            Deletes  the Polyclinic
+            </summary>
+            /// <remarks>
+            Sample request:
+            Delete /Polyclinics/45B336E1-D01D-4C4F-9A83-58E60E65C2BE
+            </remarks>
+            <param name="PolyclinicId">Polyclinic id (Guid)</param>
+            <returns>Returns NoContent</returns>
+            <response code="204">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.PositionsController.GetAllPositions">
+            <summary>
+            Gets the list of Positions
+            </summary>
+            <remarks>
+            Sample request:
+            GET /Positions
+            </remarks>
+            <returns>Returns PositionsListVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.PositionsController.GetPosition(System.Guid)">
+            <summary>
+            Gets the Position by id
+            </summary>
+            <remarks>
+            Sample request:
+            GET /Positions/45B336E1-D01D-4C4F-9A83-58E60E65C2BE
+            </remarks>
+            <param name="PositionId">Position id (Guid)</param>
+            <returns>Returns PositionDetailsVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.PositionsController.CreatePosition(Medir.WebApi.Areas.Administrator.Models.Positions.CreatePositionDto)">
+            <summary>
+            Creates the Position
+            </summary> 
+            <remarks>
+            Sample request:
+            POST /Positions
+            {       
+                "PositionName": "Gregory Hous position"
+            }
+            </remarks>
+            <param name="createPositionDto">createPositionDto object</param>
+            <returns>Returns id (Guid)</returns>
+            <response code="201">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.PositionsController.UpdatePosition(Medir.WebApi.Areas.Administrator.Models.Positions.UpdatePositionDto)">
+            <summary>
+            Updates the Position
+            </summary>
+            <remarks>
+            Sample request:
+            PUT /Positions
+            {
+                "PositionId": "45B336E1-D01D-4C4F-9A83-58E60E65C2BE"
+                "PositionName": "Gregory Hous position is busy"
+            }
+            </remarks> 
+            <param name="updatePositionDto">UpdatePositionDto object</param>
+            <returns>Returns NoContent</returns>
+            <response code="204">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.PositionsController.DeletePosition(System.Guid)">
+            <summary>
+            Deletes  the Position
+            </summary>
+            /// <remarks>
+            Sample request:
+            Delete /Positions/45B336E1-D01D-4C4F-9A83-58E60E65C2BE
+            </remarks>
+            <param name="PositionId">Position id (Guid)</param>
+            <returns>Returns NoContent</returns>
+            <response code="204">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Controllers.UserController.GetAllCitiesForChoice">
+            <summary>
+            Gets the list of Cities
+            </summary>
+            <remarks>
+            Sample request:
+            GET /Cities
+            </remarks>
+            <returns>Returns CitiesListVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Controllers.UserController.GetPositionsForUserList(System.Guid)">
+            <summary>
+            Gets the list of PositionsForUser
+            </summary>
+            <remarks>
+            Sample request:
+            GET /User
+            </remarks>
+            <param name="CityId">City Id (Guid)</param>
+            <returns>Returns PolyclinicsByCityListVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Controllers.UserController.GetMedicsForUserList(Medir.Application.User.Queries.GetMedicsForUserList.GetMedicsForUserListQuery)">
+            <summary>
+            Gets the list of MedicsForUser
+            </summary>
+            <remarks>
+            Sample request:
+            GET /User
+            </remarks>
+            <param name="GetMedicsForUserListQuery">GetMedicsByPositionAndPoliclinicListQuery (GetMedicsByPositionAndPoliclinicListQuery)</param>
+            <returns>Returns MedicsForUserListVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Controllers.UserController.GetAllMedicsForUserList(Medir.Application.User.Queries.GetMedicsForUserList.GetMedicsForUserListQuery)">
+            <summary>
+            Gets the list of MedicsForUser
+            </summary>
+            <remarks>
+            Sample request:
+            GET /User
+            </remarks>
+            <param name="GetMedicsForUserListQuery">GetMedicsByPositionAndPoliclinicListQuery (GetMedicsByPositionAndPoliclinicListQuery)</param>
+            <returns>Returns MedicsForUserListVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Controllers.UserController.GetMedicAvailabilitiesForUserList(Medir.Application.User.Queries.GetMedicAvailabiltyForUserList.GetMedicAvailabilityForUserListQuery)">
+            <summary>
+            Gets the list of MedicAvailabilityForUserListVm
+            </summary>
+            <remarks>
+            Sample request:
+            GET /User
+            </remarks>
+            <returns>Returns MedicAvailabiltyOnDayVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Controllers.UserController.CreateAppointment(Medir.WebApi.Models.CreateAppointmentDto)">
+            <summary>
+            Creates the Appointment
+            </summary> 
+            <remarks>
+            Sample request:
+            POST /User
+            </remarks>
+            <param name="CreateAppointment">CreateAppointmentDto object</param>
+            <returns>Returns id (Guid)</returns>
+            <response code="201">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+        <member name="M:Medir.WebApi.Controllers.UserController.GetAppointments(Medir.Application.Appointments.Queries.GetAppointmentList.GetAppointmentListQuery)">
+            <summary>
+            Gets the list of Appointments
+            </summary>
+            <remarks>
+            Sample request:
+            GET /User
+            </remarks>
+            <param name="AppointmentListForUser">GetAppointmentList (GetAppointmentListQuery)</param>
+            <returns>Returns AppointmentsListVm</returns>
+            <response code="200">Success</response>
+            <response code="401">User is unauthorized</response>
+        </member>
+    </members>
+</doc>

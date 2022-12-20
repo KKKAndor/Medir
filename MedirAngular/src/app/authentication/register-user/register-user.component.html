@@ -1,0 +1,188 @@
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Зарегестрироваться</h1>
+
+    <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="registerUser(registerForm.value)">
+      <div class="mb-3 row">
+        <label for="firstName" class="col-form-label col-sm-2">Имя:</label>
+        <div class="col-md-5">
+          <input type="text" id="firstName" formControlName="firstName" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('firstName')
+          && hasError('firstName', 'required')">Введите имя</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="lastName" class="col-form-label col-sm-2">Фамилия:</label>
+        <div class="col-md-5">
+          <input type="text" id="lastName" formControlName="lastName" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('lastName')
+          && hasError('lastName', 'required')">Введите фамилию</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="patronymic" class="col-form-label col-sm-2">Отчество:</label>
+        <div class="col-md-5">
+          <input type="text" id="patronymic" formControlName="patronymic" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('patronymic')
+          && hasError('patronymic', 'required')">Введите отчество</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="dateOfBirth" class="col-form-label col-md-2">Дата рождения: </label>
+        <div class="col-md-5">
+          <input type="text"
+                 formControlName="dateOfBirth"
+                 id="dateOfBirth"
+                 class="form-control"
+                 bsDatepicker/>
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('dateOfBirth')
+          && hasError('dateOfBirth', 'required')">Введите дату рождения</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="email" class="col-form-label col-sm-2">Email:</label>
+        <div class="col-md-5">
+          <input type="email" id="email" formControlName="email" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('email') && hasError('email', 'email')">Пожалуйста введите корректный e-mail</em>
+          <em *ngIf="validateControl('email') && hasError('email', 'required')">Введите e-mail</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="phoneNumber" class="col-form-label col-sm-2">Номер телефона:</label>
+        <div class="col-md-5">
+          <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('phoneNumber')
+          && hasError('phoneNumber', 'required')">Введите номер телефона</em>
+          <em *ngIf="validateControl('phoneNumber')
+          && hasError('phoneNumber', 'pattern')">Некорректный ввод номера телефона</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="country" class="col-form-label col-md-2">Страна: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="country" id="country" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('country')
+          && hasError('country', 'required')">Введите страну</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="region" class="col-form-label col-md-2">Регион: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="region" id="region" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('region')
+          && hasError('region', 'required')">Введите регион</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="street" class="col-form-label col-md-2">Улица: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="street" id="street" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('street')
+          && hasError('street', 'required')">Введите улицу</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="house" class="col-form-label col-md-2">Дом: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="house" id="house" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('house')
+          && hasError('house', 'required')">Введите номер дома</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="address" class="col-form-label col-md-2">Адрес: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="address" id="address" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('address')
+          && hasError('address', 'required')">Введите адрес</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="password" class="col-form-label col-sm-2">Пароль:</label>
+        <div class="col-md-5">
+          <input type="password" id="password" formControlName="password" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('password') && hasError('password', 'required')">Введите пароль</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="confirm" class="col-form-label col-sm-2">Подтверждение пароля:</label>
+        <div class="col-md-5">
+          <input type="password" id="confirm" formControlName="confirm" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('confirm') && hasError('confirm', 'required')">Введите пароль повторно</em>
+          <em *ngIf="hasError('confirm', 'mustMatch')">Пароли должны совпадать</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="gender" class="col-form-label col-sm-2" >Выберите пол:</label>
+        <div class="col-md-5" id="gender">
+          <div class="form-check">
+            <input type="radio" class="form-check-input"
+                   formControlName="gender" id="flexRadioDefaultMale"
+                   value="male">
+            <label class="form-check-label" for="flexRadioDefaultMale">
+              Мужчина
+            </label>
+          </div>
+          <br/>
+          <div class="form-check">
+            <input type="radio" class="form-check-input"
+                   formControlName="gender" id="flexRadioDefaultFemale"
+                   value="female">
+            <label class="form-check-label" for="flexRadioDefaultFemale">
+              Женщина
+            </label>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="polyceNumber" class="col-form-label col-md-2">Номер полиса: </label>
+          <div class="col-md-5">
+            <input type="text" formControlName="polyceNumber" id="polyceNumber" class="form-control" />
+          </div>
+          <div class="col-md-5">
+            <em *ngIf="validateControl('polyceNumber')
+          && hasError('polyceNumber', 'required')">Введите номер полиса</em>
+            <em *ngIf="validateControl('polyceNumber')
+          && hasError('polyceNumber', 'pattern')">Полис должен содержать 16 цифр</em>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div *ngIf="showError" class="alert alert-danger" role="alert">
+        <span [innerHTML]="errorMessage"></span>
+        <br>
+      </div>
+      <div class="mb-3 row">
+        <div class="col-md-1">
+          <button type="submit" class="btn btn-info" [disabled]="!registerForm.valid">Зарегестрироваться</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
+</div>

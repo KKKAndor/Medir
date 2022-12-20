@@ -1,0 +1,35 @@
+<div class="card card-body bg-light mb-2 mt-2">
+  <div class="row">
+    <div class="col-md-3">
+      <strong>ID врача:</strong>
+    </div>
+    <div class="col-md-3">
+      {{item?.medicId}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>ID поликлиники:</strong>
+    </div>
+    <div class="col-md-3">
+      {{item?.polyclinicId}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Цена на прием</strong>
+    </div>
+    <div class="col-md-3">
+      {{item?.price}}
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="offset-md-3 col-md-1">
+    <button type="submit" class="btn btn-info" (click)="deleteMedicPolyclinic()">Удалить</button>
+  </div>
+  <div class="col-md-1">
+    <button type="button" class="btn btn-danger" (click)="redirectToMedic()">Отмена</button>
+  </div>
+</div>

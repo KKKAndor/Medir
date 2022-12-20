@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="offset-10 col-md-2 mt-2"> <button class="btn btn-success" (click)="createMedicAvailabilityPage()">Добавить прием врачу</button> </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Дата приема</th>
+          <th>Поликлиника</th>
+          <th>Специальность</th>
+          <th>Часы работы</th>
+          <th>Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let medic of list">
+          <td>{{medic.date | date: 'mediumDate'}}</td>
+          <td>{{medic.polyclinicName}}</td>
+          <td>{{medic.positionName}}</td>
+          <td>{{medic.timeStart | date:'shortTime'}} - {{medic.timeEnd| date:'shortTime'}}</td>
+          <td><button type="button" id="delete" class="btn btn-danger"
+                      (click)="redirectToMedicAvailabilityDeletePage(medic.polyclinicId,
+                        medic.positionId, medic.date)">Удалить</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

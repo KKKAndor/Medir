@@ -1,0 +1,45 @@
+<div class="container-fluid" xmlns="http://www.w3.org/1999/html">
+  <div class="card card-body bg-light mb-2 mt-2">
+    <div class="mb-3 row">
+      <label for="date" class="col-form-label col-md-2">Выберите дату записи: </label>
+      <div class="col-md-5">
+        <input  type="text"
+               class="form-control"
+                id="date"
+               (bsValueChange)="dateChange($event)"
+               bsDatepicker [minDate]="minDate"/>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <div class="col-md-12">
+        <mat-grid-list [cols]="7" rowHeight="50px" gutterSize="2px" *ngIf="(availabilities$ | async)!.lookUpList!.length; else noAppoint">
+          <mat-grid-tile *ngFor="let medic of (availabilities$ | async)!.lookUpList" (click)="makeButtonReal(medic)">
+            <button class="btn btn-primary" style="font-size: 15px" >{{medic.timeStart | date:'shortTime'}} - {{medic.timeEnd| date:'shortTime'}}</button>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <ng-template #noAppoint>
+          <p class="text-bg-warning align-content-center">На этот день записей нет</p>
+        </ng-template>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <div *ngIf='authService.isUserAuthenticated()'>
+        <a>Вы авторизированы, будут использованы ваши данные </a>
+      </div>
+      <div *ngIf='!authService.isUserAuthenticated()'>
+        <app-fast-register (onRegisterClick)="isFastRegistered($event)"></app-fast-register>
+      </div>
+    </div>
+    <div class="mb-3 row" [formGroup]="form">
+      <label for="prescription" class="col-form-label col-md-2">Что беспокоит (не обязательно): </label>
+      <div class="col-md-5">
+          <textarea type="text" rows="3" formControlName="prescription" id="prescription" class="form-control" >
+          </textarea>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <button class="btn btn-success" (click)="makeAppointment()"
+              [disabled]="!((readyToAppoint && authService.isUserAuthenticated()) || (readyToAppoint && fastRegistered))">Записаться</button>
+    </div>
+  </div>
+</div>

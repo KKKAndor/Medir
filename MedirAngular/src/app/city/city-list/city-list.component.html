@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="offset-10 col-md-2 mt-2"> <a [routerLink]="['/city/city-create']">Создать город</a> </div>
+</div> <br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>ID города</th>
+          <th>Название города</th>
+          <th>Подробности</th>
+          <th>Изменить</th>
+          <th>Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let city of list">
+          <td>{{city.cityId}}</td>
+          <td>{{city.cityName}}</td>
+          <td><button type="button" id="details" class="btn btn-primary"
+                      (click)="getCityDetails(city.cityId)">Подробности</button></td>
+          <td><button type="button" id="update" class="btn btn-success"
+                      (click)="redirectToCityUpdatePage(city.cityId)">Изменить</button></td>
+          <td><button type="button" id="delete" class="btn btn-danger"
+                      (click)="redirectToCityDeletePage(city.cityId)">Удалить</button></td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

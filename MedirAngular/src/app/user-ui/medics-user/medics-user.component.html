@@ -1,0 +1,77 @@
+<div class="card card-body bg-light mb-2 mt-2">
+  <div class="list-group">
+    <div class="col-md-12">
+      <div *ngFor="let medic of medicsList" class="list-group-item" style="box-sizing: border-box; align-content: center; background: white; ">
+        <div style="margin: 20px" class="row">
+          <div class="col">
+            <h4 class="mb-3" style="font-size: 20px">{{medic.medicFullName}}</h4>
+            <img [src]="createImgPath(medic!.medicPhoto)" style="height:150px;">
+            <h5>
+              <p style="color: darkred; font-size: 20px">{{medic.shortDescription}} </p>
+              <p style="color: darkgreen; font-size: 20px">{{medic.yearsOnPosition}} лет на позиции</p>
+            </h5>
+            <div class="row">
+              <h6 class="mb-3" style="font-size: 20px">Специальности:</h6>
+              <ul style="list-style-type: none;">
+                <li *ngFor="let position of medic.positionNames" style="display: inline">
+                  <a *ngIf="position !== medic.positionNames[medic.positionNames.length - 1]; else lastPos">{{position}} / </a>
+                  <ng-template #lastPos>{{position}}</ng-template>
+                </li>
+              </ul>
+              <br>
+              <p>{{medic.fullDescription}}</p>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="list-group" *ngIf="medic.medicPolyclinicForUserLookUpList.length > 0; else noAppoint">
+              <ul style="list-style-type: none;">
+                <li *ngFor="let polyclinic of medic.medicPolyclinicForUserLookUpList" class="list-group-item">
+                  <div class="table-responsive">
+                    <table>
+                      <tbody>
+                      <tr>
+                        <td style="width: 500px">
+                          <div class="nav-item">
+                            <h4>{{polyclinic.polyclinicName}}  </h4>
+                            <p>Адрес:  {{polyclinic.polyclinicAddress}} </p>
+                            <p>Телефон:  {{polyclinic.polyclinicPhoneNumber}} </p>
+                            <p class="btn btn-link" style="color: blue" (click)="polyclinicOnMap(polyclinic)">На карте</p>
+                          </div>
+                        </td>
+                        <td style="width: 100px">
+                          <div>
+                            <a>Цена приема:  <a style="color: #f10b0b">{{polyclinic.price}}</a> р.</a>
+                            <button type="button" class="btn btn-primary" (click)="makeAppointment(medic.medicId, polyclinic.polyclinicId)">Записаться</button>
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                            <h1 style="color: red">
+                              <p align="center">
+                                Ближайшая запись
+                              </p>
+                              <p align="center">
+                                {{polyclinic.closestAppoint | date: 'mediumDate'}}
+                              </p>
+                            </h1>
+                          </div>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <ng-template #noAppoint>
+              <h1 align="center" style="color: red">
+                Записей для этого врача нет
+              </h1>
+            </ng-template>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

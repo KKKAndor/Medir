@@ -1,0 +1,89 @@
+<div class="container-fluid" xmlns="http://www.w3.org/1999/html">
+  <form [formGroup]="form" autocomplete="off" novalidate (ngSubmit)="createPolyclinic(form.value)">
+    <div class="card card-body bg-light mb-2 mt-2">
+      <div class="mb-3 row">
+        <label for="polyclinicName" class="col-form-label col-md-2">Название поликлиники: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="polyclinicName" id="polyclinicName" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('polyclinicName')
+          && hasError('polyclinicName', 'required')">Введите название поликлиники</em>
+          <em *ngIf="validateControl('polyclinicName')
+          && hasError('polyclinicName', 'maxlength')">Максимальное количество символов 50.</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="cityId" class="col-form-label col-md-2">Город: </label>
+        <div class="col-md-5">
+          <select (change)="changed($event)" formControlName="cityId" id="cityId" class="form-control">
+            <option *ngFor="let cityLookUpDto of Cities" [value]="cityLookUpDto.cityId">
+              {{cityLookUpDto.cityName}}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('cityId')
+          && hasError('cityId', 'required')">Выберите город</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="polyclinicAddress" class="col-form-label col-md-2">Адресс поликлиники: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="polyclinicAddress" id="polyclinicAddress" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('polyclinicAddress')
+          && hasError('polyclinicAddress', 'required')">Введите адресс поликлиники</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="longitude" class="col-form-label col-md-2">Долгота: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="longitude" id="longitude" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('longitude')
+          && hasError('longitude', 'required')">Введите долготу</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="latitude" class="col-form-label col-md-2">Широта: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="latitude" id="latitude" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('latitude')
+          && hasError('latitude', 'required')">Введите широту</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="polyclinicPhoneNumber" class="col-form-label col-md-2">Номер поликлиники: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="polyclinicPhoneNumber" id="polyclinicPhoneNumber" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('polyclinicPhoneNumber')
+          && hasError('polyclinicPhoneNumber', 'required')">Введите номер поликлиники</em>
+          <em *ngIf="validateControl('polyclinicPhoneNumber')
+          && hasError('polyclinicPhoneNumber', 'pattern')">Формат номера +373########.</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-form-label col-md-2">Фото: </label>
+        <div class="col-md-5">
+          <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+        </div>
+      </div>
+      <br>
+      <div class="mb-3 row">
+        <div class="offset-5 col-md-1">
+          <button type="submit" class="btn btn-info" [disabled]="!form.valid">Добавить</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-danger" (click)="redirectToPolyclinicList()" >Отменить</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

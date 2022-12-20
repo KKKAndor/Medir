@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4b0a1b18-f801-4f70-ba0d-c85d9ec1ae81" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.vs/Medir.Backend/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Medir.Backend/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Medir.Backend/FileContentIndex/10750a4c-ae50-4019-bb3e-debabb0fcc89.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Medir.Backend/FileContentIndex/6858b025-df0b-4911-99d0-668dfc95c422.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Medir.Backend/FileContentIndex/d907c550-8f16-4fd0-9dc2-5138d6ae104c.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Medir.Backend/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Medir.Backend/v17/.futdcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Medir.Backend/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Medir.Backend/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/medir.backend.metadata.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/medir.backend.metadata.v5.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/medir.backend.projects.v5.1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/medir.backend.projects.v5.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medir.Application/obj/Debug/net6.0/Medir.Application.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Medir.Application/obj/Debug/net6.0/Medir.Application.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medir.Persistence/obj/Debug/net6.0/Medir.Persistence.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Medir.Persistence/obj/Debug/net6.0/Medir.Persistence.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medir.WebApi/Medir.WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Medir.WebApi/Medir.WebApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medir.WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Medir.WebApi/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medir.WebApi/bin/Debug/net6.0/Medir.WebApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Medir.WebApi/bin/Debug/net6.0/Medir.WebApi.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medir.WebApi/bin/Debug/net6.0/Medir.WebApi.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Medir.WebApi/bin/Debug/net6.0/Medir.WebApi.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medir.WebApi/obj/Debug/net6.0/Medir.WebApi.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Medir.WebApi/obj/Debug/net6.0/Medir.WebApi.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medir.WebApi/obj/Debug/net6.0/Medir.WebApi.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Medir.WebApi/obj/Debug/net6.0/Medir.WebApi.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medir.WebApi/obj/Debug/net6.0/Medir.WebApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Medir.WebApi/obj/Debug/net6.0/Medir.WebApi.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medir.WebApi/obj/Debug/net6.0/Medir.WebApi.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Medir.WebApi/obj/Debug/net6.0/Medir.WebApi.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medir.WebApi/obj/Debug/net6.0/ref/Medir.WebApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Medir.WebApi/obj/Debug/net6.0/ref/Medir.WebApi.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medir.WebApi/obj/Debug/net6.0/refint/Medir.WebApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Medir.WebApi/obj/Debug/net6.0/refint/Medir.WebApi.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medir.WebApi/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/Medir.WebApi/obj/staticwebassets.pack.sentinel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/_interfaces/medics/MedicDetailsVm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/_interfaces/medics/MedicDetailsVm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/medic/medic-create/medic-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/medic/medic-create/medic-create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/medic/medic-create/medic-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/medic/medic-create/medic-create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/medic/medic-details/medic-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/medic/medic-details/medic-details.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/medic/medic-details/medic-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/medic/medic-details/medic-details.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/medic/medic-update/medic-update.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/medic/medic-update/medic-update.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/medic/medic-update/medic-update.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/medic/medic-update/medic-update.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/medic/medic.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/medic/medic.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/polyclinic/polyclinic-create/polyclinic-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/polyclinic/polyclinic-create/polyclinic-create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/polyclinic/polyclinic-create/polyclinic-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/polyclinic/polyclinic-create/polyclinic-create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/polyclinic/polyclinic-details/polyclinic-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/polyclinic/polyclinic-details/polyclinic-details.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/polyclinic/polyclinic-details/polyclinic-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/polyclinic/polyclinic-details/polyclinic-details.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/polyclinic/polyclinic-update/polyclinic-update.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/polyclinic/polyclinic-update/polyclinic-update.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/polyclinic/polyclinic-update/polyclinic-update.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/polyclinic/polyclinic-update/polyclinic-update.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/polyclinic/polyclinic.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/polyclinic/polyclinic.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MedirAngular/src/app/shared/services/medir-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../MedirAngular/src/app/shared/services/medir-service.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2H8UG8XZQBfDfCLQthfVXql61wq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4b0a1b18-f801-4f70-ba0d-c85d9ec1ae81" name="Changes" comment="" />
+      <created>1667666106650</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667666106650</updated>
+      <workItem from="1667666108662" duration="58000" />
+    </task>
+    <servers />
+  </component>
+</project>

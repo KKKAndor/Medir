@@ -1,0 +1,27 @@
+<div class="card card-body bg-light mb-2 mt-2">
+  <div class="row">
+    <div class="col-md-3">
+      <strong>ID города:</strong>
+    </div>
+    <div class="col-md-3">
+      {{city?.cityId}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Название города:</strong>
+    </div>
+    <div class="col-md-3">
+      {{city?.cityName}}
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="offset-md-3 col-md-1">
+    <button type="submit" class="btn btn-info" (click)="deleteCity()">Удалить</button>
+  </div>
+  <div class="col-md-1">
+    <button type="button" class="btn btn-danger" (click)="redirectToCityList()">Отмена</button>
+  </div>
+</div>

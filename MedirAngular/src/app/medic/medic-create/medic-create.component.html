@@ -1,0 +1,70 @@
+<div class="container-fluid" xmlns="http://www.w3.org/1999/html">
+  <form [formGroup]="form" autocomplete="off" novalidate (ngSubmit)="createMedic(form.value)">
+    <div class="card card-body bg-light mb-2 mt-2">
+      <div class="mb-3 row">
+        <label for="medicFullName" class="col-form-label col-md-2">ФИО врача: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="medicFullName" id="medicFullName" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('medicFullName')
+          && hasError('medicFullName', 'required')">Введите ФИО врача</em>
+          <em *ngIf="validateControl('medicFullName')
+          && hasError('medicFullName', 'maxlength')">Максимальное количество символов 100.</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="shortDescription" class="col-form-label col-md-2">Краткое описание врача: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="shortDescription" id="shortDescription" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('shortDescription')
+          && hasError('shortDescription', 'required')">Введите краткое описание врача</em>
+          <em *ngIf="validateControl('shortDescription')
+          && hasError('shortDescription', 'maxlength')">Максимальное количество символов 100.</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="fullDescription" class="col-form-label col-md-2">Полное описание врача: </label>
+        <div class="col-md-5">
+          <textarea type="text" rows="3" formControlName="fullDescription" id="fullDescription" class="form-control">
+          </textarea>
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('fullDescription')
+          && hasError('fullDescription', 'required')">Введите полное описание врача</em>
+          <em *ngIf="validateControl('fullDescription')
+          && hasError('fullDescription', 'maxlength')">Максимальное количество символов 250.</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="medicPhoneNumber" class="col-form-label col-md-2">Номер врача: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="medicPhoneNumber" id="medicPhoneNumber" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('medicPhoneNumber')
+          && hasError('medicPhoneNumber', 'required')">Введите номер врача</em>
+          <em *ngIf="validateControl('medicPhoneNumber')
+          && hasError('medicPhoneNumber', 'pattern')">Формат номера +373########.</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label class="col-form-label col-md-2">Фото врача: </label>
+        <div class="col-md-5">
+          <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+        </div>
+      </div>
+      <br>
+      <div class="mb-3 row">
+        <div class="offset-5 col-md-1">
+          <button type="submit" class="btn btn-info" [disabled]="!form.valid">Добавить</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-danger" (click)="redirectToMedicList()" >Отменить</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

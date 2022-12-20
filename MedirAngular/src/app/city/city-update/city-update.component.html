@@ -1,0 +1,47 @@
+<div class="container-fluid" xmlns="http://www.w3.org/1999/html">
+  <form [formGroup]="form" autocomplete="off" novalidate (ngSubmit)="updateCity(form.value)">
+    <div class="card card-body bg-light mb-2 mt-2">
+      <div class="mb-3 row">
+        <label for="cityName" class="col-form-label col-md-2">Название города: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="cityName" id="cityName" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('cityName')
+          && hasError('cityName', 'required')">Введите название города</em>
+          <em *ngIf="validateControl('cityName')
+          && hasError('cityName', 'maxlength')">Максимальное количество символов 50.</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="longitude" class="col-form-label col-md-2">Долгота: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="longitude" id="longitude" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('longitude')
+          && hasError('longitude', 'required')">Введите долготу</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="latitude" class="col-form-label col-md-2">Широта: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="latitude" id="latitude" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('latitude')
+          && hasError('latitude', 'required')">Введите широту</em>
+        </div>
+      </div>
+      <br>
+      <div class="mb-3 row">
+        <div class="offset-5 col-md-1">
+          <button type="submit" class="btn btn-info" [disabled]="!form.valid">Сохранить</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-danger" (click)="redirectToCityList()" >Отменить</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

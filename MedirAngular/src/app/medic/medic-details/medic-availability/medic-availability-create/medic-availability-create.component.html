@@ -1,0 +1,95 @@
+<div class="container-fluid" xmlns="http://www.w3.org/1999/html">
+  <form [formGroup]="form" autocomplete="off" novalidate (ngSubmit)="createMedicAvailability(form.value)">
+    <div class="card card-body bg-light mb-2 mt-2">
+      <div class="mb-3 row">
+        <label for="polyclinicId" class="col-form-label col-md-2">Поликлиника: </label>
+        <div class="col-md-5">
+          <select (change)="changedPolyclinic($event)" formControlName="polyclinicId" id="polyclinicId" class="form-control">
+            <option *ngFor="let item of Polyclinics" [value]="item.polyclinicId">
+              {{item.polyclinicName}}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('polyclinicId')
+          && hasError('polyclinicId', 'required')">Выберите поликлинику</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="positionId" class="col-form-label col-md-2">Специальность: </label>
+        <div class="col-md-5">
+          <select (change)="changedPosition($event)" formControlName="positionId" id="positionId" class="form-control">
+            <option *ngFor="let item of Positions" [value]="item.positionId">
+              {{item.positionName}}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('positionId')
+          && hasError('positionId', 'required')">Выберите специальность</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="date" class="col-form-label col-md-2">Дата приема: </label>
+        <div class="col-md-5">
+          <input type="text"
+                 formControlName="date"
+                 id="date"
+                 class="form-control"
+                 bsDatepicker/>
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('date')
+          && hasError('date', 'required')">Введите дату приема</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="timeStart" class="col-form-label col-md-2">Время начала приема: </label>
+        <div class="col-md-5">
+          <timepicker
+                 formControlName="timeStart"
+                 id="timeStart"
+                 >
+          </timepicker>
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('timeStart')
+          && hasError('timeStart', 'required')">Введите время начала приема</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="timeEnd" class="col-form-label col-md-2">Время конца приема: </label>
+        <div class="col-md-5">
+          <timepicker
+                 formControlName="timeEnd"
+                 id="timeEnd"
+                 >
+          </timepicker>
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('timeEnd')
+          && hasError('timeEnd', 'required')">Введите время конца приема</em>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="receptionMinutesTime" class="col-form-label col-md-2">Время приема: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="receptionMinutesTime" id="receptionMinutesTime"  class="form-control"/>
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('receptionMinutesTime')
+          && hasError('receptionMinutesTime', 'required')">Введите время приема</em>
+        </div>
+      </div>
+      <br>
+      <div class="mb-3 row">
+        <div class="offset-5 col-md-1">
+          <button type="submit" class="btn btn-info" [disabled]="!form.valid">Добавить</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-danger" (click)="redirectToMedic()" >Отменить</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,10 @@
+<div class="card card-body bg-light mb-2 mt-2">
+  <button type="button" id="details" class="btn btn-danger"
+          (click)="backToMedics()">назад</button>
+  <div class="container">
+    <ya-map [center]="[polyclinic!.longitude, polyclinic!.latitude]" [zoom]="16">
+      <ya-placemark [geometry]="[polyclinic!.longitude, polyclinic!.latitude]"></ya-placemark>
+    </ya-map>
+  </div>
+</div>
+
