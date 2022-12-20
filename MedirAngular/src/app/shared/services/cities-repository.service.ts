@@ -26,10 +26,29 @@ export class CitiesRepositoryService extends ClientBase {
 
   /**
    * Gets the list of Cities
+   * @param pageNumber (optional)
+   * @param pageSize (optional)
+   * @param orderBy (optional)
+   * @param contains (optional)
    * @return Success
    */
-  getAllCities(): Observable<CitiesListVm> {
-    let url_ = this.baseUrl + "/api/Administrator/Cities";
+  getAllCities(pageNumber?: number | undefined,
+               pageSize?: number | undefined,
+               orderBy?: string | null | undefined,
+               contains?: string | null | undefined): Observable<CitiesListVm> {
+    let url_ = this.baseUrl + "/api/Administrator/Cities?";
+    if (pageNumber === null)
+      throw new Error("The parameter 'pageNumber' cannot be null.");
+    else if (pageNumber !== undefined)
+      url_ += "PageNumber=" + encodeURIComponent("" + pageNumber) + "&";
+    if (pageSize === null)
+      throw new Error("The parameter 'pageSize' cannot be null.");
+    else if (pageSize !== undefined)
+      url_ += "PageSize=" + encodeURIComponent("" + pageSize) + "&";
+    if (orderBy !== undefined && orderBy !== null)
+      url_ += "OrderBy=" + encodeURIComponent("" + orderBy) + "&";
+    if (contains !== undefined && contains !== null)
+      url_ += "Contains=" + encodeURIComponent("" + contains) + "&";
     url_ = url_.replace(/[?&]$/, "");
 
     let options_ : any = {
@@ -74,12 +93,6 @@ export class CitiesRepositoryService extends ClientBase {
         let result401: any = null;
         result401 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver) as ProblemDetails;
         return throwException("User is unauthorized", status, _responseText, _headers, result401);
-      }));
-    } else if (status === 403) {
-      return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
-        let result403: any = null;
-        result403 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver) as ProblemDetails;
-        return throwException("A server side error occurred.", status, _responseText, _headers, result403);
       }));
     } else if (status !== 200 && status !== 204) {
       return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {

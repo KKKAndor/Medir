@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
+using Medir.Application.Cities.Queries.GetCityList;
+using Medir.Application.Common.Pagination;
 using Medir.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -117,7 +119,12 @@ namespace Medir.Application.User.Queries.GetMedicsForUserList
 
             list = list.OrderBy(m => m.MedicPolyclinicForUserLookUpList.Count > 0 ? 1 : -1).Reverse().ToList();
 
-            return new MedicsForUserListVm { MedicsForUser = list };
+            var pagedList = PagedList<MedicForUserLookUpDto>.ToPagedList(
+                list.AsQueryable(),
+                request.Parameters.PageNumber,
+                request.Parameters.PageSize);
+
+            return new MedicsForUserListVm { MedicsForUser = pagedList };
         }
     }
 }

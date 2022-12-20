@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Medir.Application.Common.Pagination;
 using Medir.Application.MedicAvailabilities.Command.CreateMedicAvailability;
 using Medir.Application.MedicAvailabilities.Command.DeleteMedicAvailability;
 using Medir.Application.MedicAvailabilities.Queries.GetMedicAvailabilityList;
@@ -6,6 +7,8 @@ using Medir.WebApi.Areas.Administrator.Models.MedicAvailabilities;
 using Medir.WebApi.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Medir.WebApi.Areas.Administrator.Controllers
 {
@@ -33,9 +36,25 @@ namespace Medir.WebApi.Areas.Administrator.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<MedicAvailabilityListVm>> GetMedicAvailabilitiesList(
-            [FromQuery] GetMedicAvailabilityListQuery GetMedicAvailabilityListQuery)
+            [FromQuery] GetMedicAvailabilityListQuery GetMedicAvailabilityListQuery, 
+            [FromQuery] MedicAvailabilitiesParameters parameters)
         {
+            GetMedicAvailabilityListQuery.Parameters = parameters;
+            
             var vm = await Mediator.Send(GetMedicAvailabilityListQuery);
+
+            var metadata = new
+            {
+                vm.LookUpList.TotalCount,
+                vm.LookUpList.PageSize,
+                vm.LookUpList.CurrentPage,
+                vm.LookUpList.TotalPages,
+                vm.LookUpList.HasNext,
+                vm.LookUpList.HasPrevious
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+
             return Ok(vm);
         }
 

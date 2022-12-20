@@ -20,7 +20,7 @@ export class PositionListComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.repository.getAllPositions().subscribe(value => this.list = value.positions);
+    this.repository.getAllPositions(1,10,undefined, undefined).subscribe(value => this.list = value.positions);
   }
 
   public getPositionDetails = (id: string) => {

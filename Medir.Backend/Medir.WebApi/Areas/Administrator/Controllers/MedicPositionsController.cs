@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Medir.Application.Common.Pagination;
 using Medir.Application.MedicPositions.Commands.CreateMedicPosition;
 using Medir.Application.MedicPositions.Commands.DeleteMedicPosition;
 using Medir.Application.MedicPositions.Commands.UpdateMedicPosition;
@@ -8,6 +9,7 @@ using Medir.WebApi.Areas.Administrator.Models.MedicPositions;
 using Medir.WebApi.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Data;
 
 namespace Medir.WebApi.Areas.Administrator.Controllers
@@ -35,13 +37,29 @@ namespace Medir.WebApi.Areas.Administrator.Controllers
         [HttpGet("GetMedicPosition")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<ActionResult<MedicPositionsListVm>> GetAllMedicPositions(Guid MedicId)
+        public async Task<ActionResult<MedicPositionsListVm>> GetAllMedicPositions(Guid MedicId,
+            [FromQuery] MedicPositionsParameters parameters)
         {            
             var query = new GetMedicPositionListQuery
             {
-                MedicId = MedicId
+                MedicId = MedicId,
+                Parameters = parameters
             };
+
             var vm = await Mediator.Send(query);
+
+            var metadata = new
+            {
+                vm.MedicPositions.TotalCount,
+                vm.MedicPositions.PageSize,
+                vm.MedicPositions.CurrentPage,
+                vm.MedicPositions.TotalPages,
+                vm.MedicPositions.HasNext,
+                vm.MedicPositions.HasPrevious
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+
             return Ok(vm);
         }
 

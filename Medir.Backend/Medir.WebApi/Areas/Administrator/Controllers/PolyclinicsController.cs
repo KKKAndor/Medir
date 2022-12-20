@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Medir.Application.Common.Pagination;
 using Medir.Application.Polyclinics.Commands.CreatePolyclinic;
 using Medir.Application.Polyclinics.Commands.DeletePolyclinic;
 using Medir.Application.Polyclinics.Commands.UpdatePolyclinic;
@@ -9,6 +10,7 @@ using Medir.WebApi.Areas.Administrator.Models.Polyclinics;
 using Medir.WebApi.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Medir.WebApi.Areas.Administrator.Controllers
 {
@@ -36,10 +38,24 @@ namespace Medir.WebApi.Areas.Administrator.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<ActionResult<PolyclinicsListVm>> GetAllPolyclinics()
+        public async Task<ActionResult<PolyclinicsListVm>> GetAllPolyclinics([FromQuery] PolyclinicsParameters parameters)
         {
-            var query = new GetPolyclinicListQuery();
+            var query = new GetPolyclinicListQuery
+            {
+                Parameters = parameters
+            };
             var vm = await Mediator.Send(query);
+            var metadata = new
+            {
+                vm.Polyclinics.TotalCount,
+                vm.Polyclinics.PageSize,
+                vm.Polyclinics.CurrentPage,
+                vm.Polyclinics.TotalPages,
+                vm.Polyclinics.HasNext,
+                vm.Polyclinics.HasPrevious
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
             return Ok(vm);
         }
 

@@ -27,14 +27,34 @@ export class MedicPolyclinicsRepositoryService extends ClientBase {
   /**
    * Gets the list of MedicPolyclinics
    * @param medicId (optional)
+   * @param pageNumber (optional)
+   * @param pageSize (optional)
+   * @param orderBy (optional)
+   * @param contains (optional)
    * @return Success
    */
-  getAllMedicPolyclinics(medicId: string | undefined): Observable<MedicPolyclinicsListVm> {
+  getAllMedicPolyclinics(medicId?: string | undefined,
+                         pageNumber?: number | undefined,
+                         pageSize?: number | undefined,
+                         orderBy?: string | null | undefined,
+                         contains?: string | null | undefined): Observable<MedicPolyclinicsListVm> {
     let url_ = this.baseUrl + "/api/Administrator/MedicPolyclinics/GetMedicPolyclinic?";
     if (medicId === null)
       throw new Error("The parameter 'medicId' cannot be null.");
     else if (medicId !== undefined)
       url_ += "MedicId=" + encodeURIComponent("" + medicId) + "&";
+    if (pageNumber === null)
+      throw new Error("The parameter 'pageNumber' cannot be null.");
+    else if (pageNumber !== undefined)
+      url_ += "PageNumber=" + encodeURIComponent("" + pageNumber) + "&";
+    if (pageSize === null)
+      throw new Error("The parameter 'pageSize' cannot be null.");
+    else if (pageSize !== undefined)
+      url_ += "PageSize=" + encodeURIComponent("" + pageSize) + "&";
+    if (orderBy !== undefined && orderBy !== null)
+      url_ += "OrderBy=" + encodeURIComponent("" + orderBy) + "&";
+    if (contains !== undefined && contains !== null)
+      url_ += "Contains=" + encodeURIComponent("" + contains) + "&";
     url_ = url_.replace(/[?&]$/, "");
 
     let options_ : any = {

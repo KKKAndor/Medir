@@ -1,13 +1,15 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
+using Medir.Application.Cities.Queries.GetCityList;
+using Medir.Application.Common.Pagination;
 using Medir.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Medir.Application.MedicAvailabilities.Queries.GetMedicAvailabilityList
 {
     public class GetMedicAvailabilityListQueryHandler
-        : IRequestHandler<GetMedicAvailabilityListQuery, MedicAvailabilityListVm>
+        : IRequestHandler<GetMedicAvailabilityListQuery, MedicAvailabilityListVm>, ISearchSort<MedicAvailabilityLookUpDto>
     {
         private readonly IMedirDbContext _dbContext;
 
@@ -64,9 +66,60 @@ namespace Medir.Application.MedicAvailabilities.Queries.GetMedicAvailabilityList
                 });
             }
 
-            list = list.OrderBy(m => m.Date).ToList();
+            if (request.Parameters != null)
+            {
+                Search(ref Query, request.Parameters);
 
-            return new MedicAvailabilityListVm { LookUpList = list };
+                Sort(ref Query, request.Parameters);
+            }
+
+            var pagedList = PagedList<MedicAvailabilityLookUpDto>.ToPagedList(
+                list.AsQueryable(),
+                request.Parameters.PageNumber,
+                request.Parameters.PageSize);
+
+            return new MedicAvailabilityListVm { LookUpList = pagedList };
+        }
+
+        public void Search(ref List<MedicAvailabilityLookUpDto> list, QueryStringParameters parameters)
+        {
+            if (!string.IsNullOrWhiteSpace(parameters.Contains))
+            {
+                list.Where(i =>
+                i.PolyclinicName.ToLower().Contains(parameters.Contains.ToLower()) ||
+                i.PositionName.ToLower().Contains(parameters.Contains.ToLower()));
+            }
+        }
+
+        public void Sort(ref List<MedicAvailabilityLookUpDto> list, QueryStringParameters parameters)
+        {
+            if (!string.IsNullOrWhiteSpace(parameters.OrderBy))
+            {
+                switch (parameters.OrderBy)
+                {
+                    case "PolyclinicName":
+                        list = list.OrderBy(o => o.PolyclinicName).ToList();
+                        break;
+                    case "ReversePolyclinicName":
+                        list = list.OrderBy(o => o.PolyclinicName).Reverse().ToList();
+                        break;
+                    case "PositionName":
+                        list = list.OrderBy(o => o.PositionName).ToList();
+                        break;
+                    case "ReversePositionName":
+                        list = list.OrderBy(o => o.PositionName).Reverse().ToList();
+                        break;
+                    case "Date":
+                        list = list.OrderBy(o => o.Date).ToList();
+                        break;
+                    case "ReverseDate":
+                        list = list.OrderBy(o => o.Date).Reverse().ToList();
+                        break;
+                    default:
+                        list = list.OrderBy(o => o.Date).ToList();
+                        break;
+                }
+            }
         }
     }
 }

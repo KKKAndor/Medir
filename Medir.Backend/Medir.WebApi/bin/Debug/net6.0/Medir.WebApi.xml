@@ -4,7 +4,7 @@
         <name>Medir.WebApi</name>
     </assembly>
     <members>
-        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.CitiesController.GetAllCities">
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.CitiesController.GetAllCities(Medir.Application.Common.Pagination.CitiesListParameters)">
             <summary>
             Gets the list of Cities
             </summary>
@@ -75,7 +75,7 @@
             <response code="204">Success</response>
             <response code="401">User is unauthorized</response>
         </member>
-        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicAvailabilityController.GetMedicAvailabilitiesList(Medir.Application.MedicAvailabilities.Queries.GetMedicAvailabilityList.GetMedicAvailabilityListQuery)">
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicAvailabilityController.GetMedicAvailabilitiesList(Medir.Application.MedicAvailabilities.Queries.GetMedicAvailabilityList.GetMedicAvailabilityListQuery,Medir.Application.Common.Pagination.MedicAvailabilitiesParameters)">
             <summary>
             Gets the list of MedicAvailabiltyOnDay
             </summary>
@@ -113,7 +113,7 @@
             <response code="201">Success</response>
             <response code="401">User is unauthorized</response>
         </member>
-        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicPolyclinicsController.GetAllMedicPolyclinics(System.Guid)">
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicPolyclinicsController.GetAllMedicPolyclinics(System.Guid,Medir.Application.Common.Pagination.MedicPolyclinicsParameters)">
             <summary>
             Gets the list of MedicPolyclinics
             </summary>
@@ -187,7 +187,7 @@
             <response code="204">Success</response>
             <response code="401">User is unauthorized</response>
         </member>
-        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicPositionsController.GetAllMedicPositions(System.Guid)">
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicPositionsController.GetAllMedicPositions(System.Guid,Medir.Application.Common.Pagination.MedicPositionsParameters)">
             <summary>
             Gets the list of MedicPositions
             </summary>
@@ -261,7 +261,7 @@
             <response code="204">Success</response>
             <response code="401">User is unauthorized</response>
         </member>
-        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicsController.GetAllMedics">
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.MedicsController.GetAllMedics(Medir.Application.Common.Pagination.MedicsParameters)">
             <summary>
             Gets the list of Medics
             </summary>
@@ -340,7 +340,7 @@
             <response code="204">Success</response>
             <response code="401">User is unauthorized</response>
         </member>
-        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.PolyclinicsController.GetAllPolyclinics">
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.PolyclinicsController.GetAllPolyclinics(Medir.Application.Common.Pagination.PolyclinicsParameters)">
             <summary>
             Gets the list of Polyclinics
             </summary>
@@ -413,7 +413,7 @@
             <response code="204">Success</response>
             <response code="401">User is unauthorized</response>
         </member>
-        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.PositionsController.GetAllPositions">
+        <member name="M:Medir.WebApi.Areas.Administrator.Controllers.PositionsController.GetAllPositions(Medir.Application.Common.Pagination.PositionsParameters)">
             <summary>
             Gets the list of Positions
             </summary>
@@ -509,7 +509,7 @@
             <response code="200">Success</response>
             <response code="401">User is unauthorized</response>
         </member>
-        <member name="M:Medir.WebApi.Controllers.UserController.GetMedicsForUserList(Medir.Application.User.Queries.GetMedicsForUserList.GetMedicsForUserListQuery)">
+        <member name="M:Medir.WebApi.Controllers.UserController.GetMedicsForUserList(Medir.Application.User.Queries.GetMedicsForUserList.GetMedicsForUserListQuery,Medir.Application.Common.Pagination.MedicsForUserParameters)">
             <summary>
             Gets the list of MedicsForUser
             </summary>
@@ -518,6 +518,7 @@
             GET /User
             </remarks>
             <param name="GetMedicsForUserListQuery">GetMedicsByPositionAndPoliclinicListQuery (GetMedicsByPositionAndPoliclinicListQuery)</param>
+            <param name="Parameters"></param>
             <returns>Returns MedicsForUserListVm</returns>
             <response code="200">Success</response>
             <response code="401">User is unauthorized</response>

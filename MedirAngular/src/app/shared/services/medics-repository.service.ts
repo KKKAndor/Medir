@@ -26,10 +26,26 @@ export class MedicsRepositoryService extends ClientBase {
 
   /**
    * Gets the list of Medics
+   * @param pageNumber (optional)
+   * @param pageSize (optional)
+   * @param orderBy (optional)
+   * @param contains (optional)
    * @return Success
    */
-  getAllMedics(): Observable<MedicsListVm> {
-    let url_ = this.baseUrl + "/api/Administrator/Medics";
+  getAllMedics(pageNumber: number | undefined, pageSize: number | undefined, orderBy: string | null | undefined, contains: string | null | undefined): Observable<MedicsListVm> {
+    let url_ = this.baseUrl + "/api/Administrator/Medics?";
+    if (pageNumber === null)
+      throw new Error("The parameter 'pageNumber' cannot be null.");
+    else if (pageNumber !== undefined)
+      url_ += "PageNumber=" + encodeURIComponent("" + pageNumber) + "&";
+    if (pageSize === null)
+      throw new Error("The parameter 'pageSize' cannot be null.");
+    else if (pageSize !== undefined)
+      url_ += "PageSize=" + encodeURIComponent("" + pageSize) + "&";
+    if (orderBy !== undefined && orderBy !== null)
+      url_ += "OrderBy=" + encodeURIComponent("" + orderBy) + "&";
+    if (contains !== undefined && contains !== null)
+      url_ += "Contains=" + encodeURIComponent("" + contains) + "&";
     url_ = url_.replace(/[?&]$/, "");
 
     let options_ : any = {

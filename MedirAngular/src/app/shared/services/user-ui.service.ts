@@ -6,7 +6,6 @@ import {mergeMap as _observableMergeMap} from "rxjs/operators";
 import {catchError as _observableCatch} from "rxjs/internal/operators/catchError";
 import { API_BASE_URL, blobToText, ProblemDetails, throwException} from "./medir-service";
 import { CitiesListVm } from 'src/app/_interfaces/cities/CitiesListVm';
-import { PolyclinicsForUserListVm } from 'src/app/_interfaces/userui/PolyclinicsForUserListVm';
 import { PositionsForUserListVm } from 'src/app/_interfaces/userui/PositionsForUserListVm';
 import { MedicsForUserListVm } from 'src/app/_interfaces/userui/MedicsForUserListVm';
 import { AppointmentsListVm } from 'src/app/_interfaces/userui/AppointmentsListVm';
@@ -160,10 +159,14 @@ export class UserUiService extends ClientBase {
    * Gets the list of MedicsForUser
    * @param positionId (optional)
    * @param cityId (optional)
+   * @param parameters_PageNumber (optional)
+   * @param parameters_PageSize (optional)
+   * @param parameters_OrderBy (optional)
+   * @param parameters_Contains (optional)
    * @return Success
    */
-  getMedicsForUserList(positionId: string | undefined, cityId: string | undefined): Observable<MedicsForUserListVm> {
-    let url_ = this.baseUrl + "/api/User/MedicsForUser?";
+  getAllMedicsForUserList(positionId: string | undefined, cityId: string | undefined, parameters_PageNumber: number | undefined, parameters_PageSize: number | undefined, parameters_OrderBy: string | null | undefined, parameters_Contains: string | null | undefined): Observable<MedicsForUserListVm> {
+    let url_ = this.baseUrl + "/api/User/AllMedicsForUser?";
     if (positionId === null)
       throw new Error("The parameter 'positionId' cannot be null.");
     else if (positionId !== undefined)
@@ -172,6 +175,18 @@ export class UserUiService extends ClientBase {
       throw new Error("The parameter 'cityId' cannot be null.");
     else if (cityId !== undefined)
       url_ += "CityId=" + encodeURIComponent("" + cityId) + "&";
+    if (parameters_PageNumber === null)
+      throw new Error("The parameter 'parameters_PageNumber' cannot be null.");
+    else if (parameters_PageNumber !== undefined)
+      url_ += "Parameters.PageNumber=" + encodeURIComponent("" + parameters_PageNumber) + "&";
+    if (parameters_PageSize === null)
+      throw new Error("The parameter 'parameters_PageSize' cannot be null.");
+    else if (parameters_PageSize !== undefined)
+      url_ += "Parameters.PageSize=" + encodeURIComponent("" + parameters_PageSize) + "&";
+    if (parameters_OrderBy !== undefined && parameters_OrderBy !== null)
+      url_ += "Parameters.OrderBy=" + encodeURIComponent("" + parameters_OrderBy) + "&";
+    if (parameters_Contains !== undefined && parameters_Contains !== null)
+      url_ += "Parameters.Contains=" + encodeURIComponent("" + parameters_Contains) + "&";
     url_ = url_.replace(/[?&]$/, "");
 
     let options_ : any = {
@@ -185,11 +200,11 @@ export class UserUiService extends ClientBase {
     return _observableFrom(this.transformOptions(options_)).pipe(_observableMergeMap(transformedOptions_ => {
       return this.http.request("get", url_, transformedOptions_);
     })).pipe(_observableMergeMap((response_: any) => {
-      return this.processGetMedicsForUserList(response_);
+      return this.processGetAllMedicsForUserList(response_);
     })).pipe(_observableCatch((response_: any) => {
       if (response_ instanceof HttpResponseBase) {
         try {
-          return this.processGetMedicsForUserList(response_ as any);
+          return this.processGetAllMedicsForUserList(response_ as any);
         } catch (e) {
           return _observableThrow(e) as any as Observable<MedicsForUserListVm>;
         }
@@ -198,7 +213,7 @@ export class UserUiService extends ClientBase {
     }));
   }
 
-  protected processGetMedicsForUserList(response: HttpResponseBase): Observable<MedicsForUserListVm> {
+  protected processGetAllMedicsForUserList(response: HttpResponseBase): Observable<MedicsForUserListVm> {
     const status = response.status;
     const responseBlob =
       response instanceof HttpResponse ? response.body :

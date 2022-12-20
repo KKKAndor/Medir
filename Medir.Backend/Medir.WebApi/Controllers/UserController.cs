@@ -2,12 +2,15 @@
 using Medir.Application.Appointments.Commands.CreateAppointment;
 using Medir.Application.Appointments.Queries.GetAppointmentList;
 using Medir.Application.Cities.Queries.GetCityList;
+using Medir.Application.Common.Pagination;
 using Medir.Application.User.Queries.GetMedicAvailabiltyForUserList;
 using Medir.Application.User.Queries.GetMedicsForUserList;
 using Medir.Application.User.Queries.GetPositionsForUserList;
 using Medir.WebApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Medir.WebApi.Controllers
 {
@@ -73,6 +76,7 @@ namespace Medir.WebApi.Controllers
         /// GET /User
         /// </remarks>
         /// <param name="GetMedicsForUserListQuery">GetMedicsByPositionAndPoliclinicListQuery (GetMedicsByPositionAndPoliclinicListQuery)</param>
+        /// <param name="Parameters"></param>
         /// <returns>Returns MedicsForUserListVm</returns>
         /// <response code="200">Success</response>
         /// <response code="401">User is unauthorized</response>
@@ -80,9 +84,25 @@ namespace Medir.WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult <MedicsForUserListVm>> GetMedicsForUserList(
-            [FromQuery] GetMedicsForUserListQuery GetMedicsForUserListQuery)
+            GetMedicsForUserListQuery GetMedicsForUserListQuery, 
+            [FromQuery] MedicsForUserParameters Parameters)
         {
+            GetMedicsForUserListQuery.Parameters = Parameters;
+
             var vm = await Mediator.Send(GetMedicsForUserListQuery);
+               
+            var metadata = new
+            {
+                vm.MedicsForUser.TotalCount,
+                vm.MedicsForUser.PageSize,
+                vm.MedicsForUser.CurrentPage,
+                vm.MedicsForUser.TotalPages,
+                vm.MedicsForUser.HasNext,
+                vm.MedicsForUser.HasPrevious
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+
             return Ok(vm);
         }
 

@@ -26,14 +26,42 @@ export class MedicAvailabilityRepositoryService extends ClientBase {
   /**
    * Gets the list of MedicAvailabiltyOnDay
    * @param medicId (optional)
+   * @param minDate (optional)
+   * @param maxDate (optional)
+   * @param pageNumber (optional)
+   * @param pageSize (optional)
+   * @param orderBy (optional)
+   * @param contains (optional)
    * @return Success
    */
-  getMedicAvailabilitiesList(medicId: string | undefined): Observable<MedicAvailabilityListVm> {
+  getMedicAvailabilitiesList(medicId: string | undefined,
+                             minDate?: Date | null | undefined,
+                             maxDate?: Date | null | undefined,
+                             pageNumber?: number | undefined,
+                             pageSize?: number | undefined,
+                             orderBy?: string | null | undefined,
+                             contains?: string | null | undefined): Observable<MedicAvailabilityListVm> {
     let url_ = this.baseUrl + "/api/Administrator/MedicAvailability/GetMedicAvailabilitiesList?";
     if (medicId === null)
       throw new Error("The parameter 'medicId' cannot be null.");
     else if (medicId !== undefined)
       url_ += "MedicId=" + encodeURIComponent("" + medicId) + "&";
+    if (minDate !== undefined && minDate !== null)
+      url_ += "MinDate=" + encodeURIComponent(minDate ? "" + minDate.toISOString() : "") + "&";
+    if (maxDate !== undefined && maxDate !== null)
+      url_ += "MaxDate=" + encodeURIComponent(maxDate ? "" + maxDate.toISOString() : "") + "&";
+    if (pageNumber === null)
+      throw new Error("The parameter 'pageNumber' cannot be null.");
+    else if (pageNumber !== undefined)
+      url_ += "PageNumber=" + encodeURIComponent("" + pageNumber) + "&";
+    if (pageSize === null)
+      throw new Error("The parameter 'pageSize' cannot be null.");
+    else if (pageSize !== undefined)
+      url_ += "PageSize=" + encodeURIComponent("" + pageSize) + "&";
+    if (orderBy !== undefined && orderBy !== null)
+      url_ += "OrderBy=" + encodeURIComponent("" + orderBy) + "&";
+    if (contains !== undefined && contains !== null)
+      url_ += "Contains=" + encodeURIComponent("" + contains) + "&";
     url_ = url_.replace(/[?&]$/, "");
 
     let options_ : any = {

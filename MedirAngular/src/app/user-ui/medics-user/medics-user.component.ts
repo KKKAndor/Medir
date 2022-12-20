@@ -35,7 +35,9 @@ export class MedicsUserComponent implements OnInit {
         }
       );
     if(this.cityId == "undefined"){
-      this.userService.getMedicsForUserList(this.positionId, undefined)
+      this.userService.getAllMedicsForUserList(this.positionId,
+        undefined, 1,10,
+        undefined, undefined)
         .subscribe({
           next: (it:MedicsForUserListVm) => this.medicsList = it.medicsForUser,
           error: (err: HttpErrorResponse) => {
@@ -44,7 +46,10 @@ export class MedicsUserComponent implements OnInit {
         })
     }
     else{
-      this.userService.getMedicsForUserList(this.positionId, this.cityId)
+      this.userService.getAllMedicsForUserList(
+        this.positionId, this.cityId,
+        1,10,
+        undefined, undefined)
         .subscribe({
           next: (it:MedicsForUserListVm) => this.medicsList = it.medicsForUser,
           error: (err: HttpErrorResponse) => {

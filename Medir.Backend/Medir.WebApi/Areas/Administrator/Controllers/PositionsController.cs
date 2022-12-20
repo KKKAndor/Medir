@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Medir.Application.Common.Pagination;
 using Medir.Application.Positions.Commands.CreatePosition;
 using Medir.Application.Positions.Commands.DeletePosition;
 using Medir.Application.Positions.Commands.UpdatePosition;
@@ -9,6 +10,7 @@ using Medir.WebApi.Areas.Administrator.Models.Positions;
 using Medir.WebApi.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Data;
 
 namespace Medir.WebApi.Areas.Administrator.Controllers
@@ -37,10 +39,24 @@ namespace Medir.WebApi.Areas.Administrator.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<ActionResult<PositionsListVm>> GetAllPositions()
+        public async Task<ActionResult<PositionsListVm>> GetAllPositions([FromQuery] PositionsParameters parameters)
         {
-            var query = new GetPositionListQuery();
+            var query = new GetPositionListQuery 
+            {
+                Parameters = parameters
+            };
             var vm = await Mediator.Send(query);
+            var metadata = new
+            {
+                vm.Positions.TotalCount,
+                vm.Positions.PageSize,
+                vm.Positions.CurrentPage,
+                vm.Positions.TotalPages,
+                vm.Positions.HasNext,
+                vm.Positions.HasPrevious
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
             return Ok(vm);
         }
 

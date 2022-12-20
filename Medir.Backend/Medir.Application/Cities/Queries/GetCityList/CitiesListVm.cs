@@ -1,7 +1,9 @@
-﻿namespace Medir.Application.Cities.Queries.GetCityList
+﻿using Medir.Application.Common.Pagination;
+
+namespace Medir.Application.Cities.Queries.GetCityList
 {
     public class CitiesListVm
     {
-        public IList<CityLookUpDto>? Cities { get; set; }
+        public PagedList<CityLookUpDto> Cities { get; set; }
     }
 }

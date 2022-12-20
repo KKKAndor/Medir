@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Medir.Application.Common.Pagination;
 using Medir.Application.Medics.Commands.CreateMedic;
 using Medir.Application.Medics.Commands.DeleteMedic;
 using Medir.Application.Medics.Commands.UpdateMedic;
@@ -8,6 +9,7 @@ using Medir.WebApi.Areas.Administrator.Models.Medics;
 using Medir.WebApi.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Medir.WebApi.Areas.Administrator.Controllers
 {
@@ -34,10 +36,24 @@ namespace Medir.WebApi.Areas.Administrator.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<ActionResult<MedicsListVm>> GetAllMedics()
+        public async Task<ActionResult<MedicsListVm>> GetAllMedics([FromQuery] MedicsParameters parameters)
         {
-            var query = new GetMedicListQuery();
+            var query = new GetMedicListQuery 
+            {
+                Parameters = parameters
+            };
             var vm = await Mediator.Send(query);
+            var metadata = new
+            {
+                vm.Medics.TotalCount,
+                vm.Medics.PageSize,
+                vm.Medics.CurrentPage,
+                vm.Medics.TotalPages,
+                vm.Medics.HasNext,
+                vm.Medics.HasPrevious
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
             return Ok(vm);
         }
 

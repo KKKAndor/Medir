@@ -21,7 +21,7 @@ export class MedicPolyclinicListComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.repository.getAllMedicPolyclinics(this.id)
+    this.repository.getAllMedicPolyclinics(this.id, 1,10,undefined, undefined)
       .subscribe({next:value => this.list = value.medicPolyclinics});
   }
 

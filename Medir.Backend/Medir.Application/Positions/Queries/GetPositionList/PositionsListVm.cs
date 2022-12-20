@@ -1,7 +1,9 @@
-﻿namespace Medir.Application.Positions.Queries.GetPositionList
+﻿using Medir.Application.Common.Pagination;
+
+namespace Medir.Application.Positions.Queries.GetPositionList
 {
     public class PositionsListVm
     {
-        public IList<PositionLookUpDto>? Positions { get; set; }
+        public PagedList<PositionLookUpDto> Positions { get; set; }
     }
 }

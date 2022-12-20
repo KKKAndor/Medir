@@ -5,10 +5,12 @@ using Medir.Application.Cities.Commands.DeleteCity;
 using Medir.Application.Cities.Commands.UpdateCity;
 using Medir.Application.Cities.Queries.GetCityDetails;
 using Medir.Application.Cities.Queries.GetCityList;
+using Medir.Application.Common.Pagination;
 using Medir.WebApi.Areas.Administrator.Models.Cities;
 using Medir.WebApi.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Medir.WebApi.Areas.Administrator.Controllers
 {
@@ -36,10 +38,26 @@ namespace Medir.WebApi.Areas.Administrator.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<ActionResult<CitiesListVm>> GetAllCities()
+        public async Task<ActionResult<CitiesListVm>> GetAllCities([FromQuery] CitiesListParameters Parameters)
         {
-            var query = new GetCityListQuery();
+            var query = new GetCityListQuery 
+            {
+                Parameters = Parameters
+            };
             var vm = await Mediator.Send(query);
+
+            var metadata = new
+            {
+                vm.Cities.TotalCount,
+                vm.Cities.PageSize,
+                vm.Cities.CurrentPage,
+                vm.Cities.TotalPages,
+                vm.Cities.HasNext,
+                vm.Cities.HasPrevious
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+
             return Ok(vm);
         }
 

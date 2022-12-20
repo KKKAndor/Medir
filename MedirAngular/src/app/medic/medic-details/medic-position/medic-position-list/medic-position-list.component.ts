@@ -22,7 +22,7 @@ export class MedicPositionListComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.repository.getAllMedicPositions(this.id).subscribe({next:value => this.list = value.medicPositions});
+    this.repository.getAllMedicPositions(this.id, 1,10,undefined, undefined).subscribe({next:value => this.list = value.medicPositions});
   }
 
   public getMedicPositionDetails = (positionId: string) => {

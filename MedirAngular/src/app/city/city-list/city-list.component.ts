@@ -18,7 +18,12 @@ export class CityListComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.repository.getAllCities().subscribe(value => this.list = value.cities);
+    this.repository.getAllCities(
+      1,
+      10,
+      undefined,
+      undefined
+    ).subscribe(value => this.list = value.cities);
   }
 
   public getCityDetails = (id: string) => {

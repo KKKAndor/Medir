@@ -23,7 +23,7 @@ export class PolyclinicListComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.repository.getAllPolyclinics()
+    this.repository.getAllPolyclinics(undefined, 1,10,undefined, undefined)
       .subscribe(value => this.list = value.polyclinics);
   }
 

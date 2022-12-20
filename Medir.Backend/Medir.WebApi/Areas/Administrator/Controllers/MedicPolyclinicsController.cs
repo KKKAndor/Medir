@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
+using Medir.Application.Common.Pagination;
+using Medir.Application.MedicAvailabilities.Queries.GetMedicAvailabilityList;
 using Medir.Application.MedicPolyclinics.Commands.CreateMedicPolyclinic;
 using Medir.Application.MedicPolyclinics.Commands.DeleteMedicPolyclinic;
 using Medir.Application.MedicPolyclinics.Commands.UpdateMedicPolyclinic;
@@ -10,6 +12,7 @@ using Medir.WebApi.Areas.Administrator.Models.MedicPolyclinics;
 using Medir.WebApi.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Data;
 
 namespace Medir.WebApi.Areas.Administrator.Controllers
@@ -37,13 +40,29 @@ namespace Medir.WebApi.Areas.Administrator.Controllers
         [HttpGet("GetMedicPolyclinic")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<ActionResult<MedicPolyclinicsListVm>> GetAllMedicPolyclinics(Guid MedicId)
+        public async Task<ActionResult<MedicPolyclinicsListVm>> GetAllMedicPolyclinics(Guid MedicId, 
+            [FromQuery] MedicPolyclinicsParameters parameters)
         {
             var query = new GetMedicPolyclinicListQuery
             {
-                MedicId = MedicId
+                MedicId = MedicId,
+                Parameters = parameters
             };
+
             var vm = await Mediator.Send(query);
+
+            var metadata = new
+            {
+                vm.MedicPolyclinics.TotalCount,
+                vm.MedicPolyclinics.PageSize,
+                vm.MedicPolyclinics.CurrentPage,
+                vm.MedicPolyclinics.TotalPages,
+                vm.MedicPolyclinics.HasNext,
+                vm.MedicPolyclinics.HasPrevious
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+                        
             return Ok(vm);
         }
 

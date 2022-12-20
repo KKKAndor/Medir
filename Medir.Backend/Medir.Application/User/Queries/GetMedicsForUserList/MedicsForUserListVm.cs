@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Medir.Application.Common.Pagination;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Medir.Application.User.Queries.GetMedicsForUserList
 {
     public class MedicsForUserListVm
     {
-        public IList<MedicForUserLookUpDto> MedicsForUser { get; set; }
+        public PagedList<MedicForUserLookUpDto> MedicsForUser { get; set; }
     }
 }

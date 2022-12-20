@@ -18,7 +18,7 @@ export class MedicListComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.repository.getAllMedics().subscribe(value => this.list = value.medics);
+    this.repository.getAllMedics(1,10,undefined, undefined).subscribe(value => this.list = value.medics);
   }
 
   public getMedicDetails = (id: string) => {

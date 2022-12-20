@@ -1,7 +1,9 @@
-﻿namespace Medir.Application.Polyclinics.Queries.GetPolyclinicList
+﻿using Medir.Application.Common.Pagination;
+
+namespace Medir.Application.Polyclinics.Queries.GetPolyclinicList
 {
     public class PolyclinicsListVm
     {
-        public IList<PolyclinicLookUpDto>? Polyclinics { get; set; }
+        public PagedList<PolyclinicLookUpDto> Polyclinics { get; set; }
     }
 }
