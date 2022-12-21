@@ -7,7 +7,7 @@ using Medir.WebApi.Areas.Administrator.Models.Cities;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-namespace Medir.WebApi.Models
+namespace Medir.WebApi.Entities.Models
 {
     public class CreateAppointmentDto : IMapWith<CreateAppointmentCommand>
     {

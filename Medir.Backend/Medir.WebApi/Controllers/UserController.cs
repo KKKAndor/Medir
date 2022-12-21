@@ -5,7 +5,7 @@ using Medir.Application.Cities.Queries.GetCityList;
 using Medir.Application.User.Queries.GetMedicAvailabiltyForUserList;
 using Medir.Application.User.Queries.GetMedicsForUserList;
 using Medir.Application.User.Queries.GetPositionsForUserList;
-using Medir.WebApi.Models;
+using Medir.WebApi.Entities.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

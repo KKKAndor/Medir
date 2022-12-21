@@ -24,6 +24,7 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.10",
           "NSwag.AspNetCore": "13.17.0",
           "Newtonsoft.Json": "13.0.1",
+          "PiotrTrojan.AspNetCore.IdentityErrorLocalization.ru-RU": "1.0.7",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -2050,6 +2051,17 @@
           }
         }
       },
+      "PiotrTrojan.AspNetCore.IdentityErrorLocalization.ru-RU/1.0.7": {
+        "dependencies": {
+          "Microsoft.Extensions.Identity.Core": "6.0.10"
+        },
+        "runtime": {
+          "lib/net5.0/PiotrTrojan.AspNetCore.IdentityErrorLocalization.ru-RU.dll": {
+            "assemblyVersion": "1.0.7.0",
+            "fileVersion": "1.0.7.0"
+          }
+        }
+      },
       "Portable.BouncyCastle/1.9.0": {
         "runtime": {
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
@@ -4063,6 +4075,13 @@
       "sha512": "sha512-+o507LXjsN1YVAgmpqKCQZ70cLsXDoVmR8H0Wgy0muiFnOhkXN2+a6PGFBAIuA7qJch/umTYu1hp7Dlh1Qcrgg==",
       "path": "nuget.versioning/6.2.1",
       "hashPath": "nuget.versioning.6.2.1.nupkg.sha512"
+    },
+    "PiotrTrojan.AspNetCore.IdentityErrorLocalization.ru-RU/1.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-r19B34eNMoRjmnKgiFVchogJW0T4Frr6Sydi28eVF61e29JNmUkPxq0cbnflIEwQHupkHUBTzdFLsP+kSq/Vpg==",
+      "path": "piotrtrojan.aspnetcore.identityerrorlocalization.ru-ru/1.0.7",
+      "hashPath": "piotrtrojan.aspnetcore.identityerrorlocalization.ru-ru.1.0.7.nupkg.sha512"
     },
     "Portable.BouncyCastle/1.9.0": {
       "type": "package",

@@ -43,7 +43,8 @@ builder.Services.AddIdentity<User, IdentityRole>(opt =>
     opt.User.RequireUniqueEmail = true;
 
 }).AddEntityFrameworkStores<RepositoryContext>()
-    .AddDefaultTokenProviders();
+    .AddDefaultTokenProviders()
+    .AddRussianIdentityErrorDescriber();
 
 builder.Services.Configure<DataProtectionTokenProviderOptions>(opt =>
     opt.TokenLifespan = TimeSpan.FromHours(2));

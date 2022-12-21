@@ -4,7 +4,8 @@
       <div class="mb-3 row">
         <label for="medicFullName" class="col-form-label col-md-2">ФИО врача: </label>
         <div class="col-md-5">
-          <input type="text" formControlName="medicFullName" id="medicFullName" class="form-control" />
+          <input type="text" formControlName="medicFullName" id="medicFullName" class="form-control"
+                 [(ngModel)]="item!.medicFullName"/>
         </div>
         <div class="col-md-5">
           <em *ngIf="validateControl('medicFullName')
@@ -16,7 +17,8 @@
       <div class="mb-3 row">
         <label for="shortDescription" class="col-form-label col-md-2">Краткое описание врача: </label>
         <div class="col-md-5">
-          <input type="text" formControlName="shortDescription" id="shortDescription" class="form-control" />
+          <input type="text" formControlName="shortDescription" id="shortDescription" class="form-control"
+                 [(ngModel)]="item!.shortDescription"/>
         </div>
         <div class="col-md-5">
           <em *ngIf="validateControl('shortDescription')
@@ -28,7 +30,8 @@
       <div class="mb-3 row">
         <label for="fullDescription" class="col-form-label col-md-2">Полное описание врача: </label>
         <div class="col-md-5">
-          <input type="text" formControlName="fullDescription" id="fullDescription" class="form-control" />
+          <input type="text" formControlName="fullDescription" id="fullDescription" class="form-control"
+                 [(ngModel)]="item!.fullDescription"/>
         </div>
         <div class="col-md-5">
           <em *ngIf="validateControl('fullDescription')
@@ -40,7 +43,8 @@
       <div class="mb-3 row">
         <label for="medicPhoneNumber" class="col-form-label col-md-2">Номер врача: </label>
         <div class="col-md-5">
-          <input type="text" formControlName="medicPhoneNumber" id="medicPhoneNumber" class="form-control" />
+          <input type="text" formControlName="medicPhoneNumber" id="medicPhoneNumber" class="form-control"
+                 [(ngModel)]="item!.medicPhoneNumber"/>
         </div>
         <div class="col-md-5">
           <em *ngIf="validateControl('medicPhoneNumber')

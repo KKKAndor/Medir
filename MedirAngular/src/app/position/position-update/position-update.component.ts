@@ -16,12 +16,24 @@ import { UpdatePositionDto } from 'src/app/_interfaces/positions/UpdatePositionD
   styleUrls: ['./position-update.component.css']
 })
 export class PositionUpdateComponent implements OnInit {
+
+  item!: PositionDetailsVm | null;
+
   form!: FormGroup;
 
   constructor(private repository: PositionsRepositoryService, private errorHandler: ErrorHandlerService,
               private router: Router, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const id: string = this.activeRoute.snapshot.params['id'];
+    this.repository.getPosition(id)
+      .subscribe({
+        next: (it: PositionDetailsVm) => this.item = it,
+        error: (err: HttpErrorResponse) => {
+          this.errorHandler.handleError(err);
+        }
+      })
+
     this.form = new FormGroup({
       positionName: new FormControl('', [Validators.required, Validators.maxLength(100)])
     });

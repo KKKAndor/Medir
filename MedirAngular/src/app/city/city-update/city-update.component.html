@@ -4,7 +4,8 @@
       <div class="mb-3 row">
         <label for="cityName" class="col-form-label col-md-2">Название города: </label>
         <div class="col-md-5">
-          <input type="text" formControlName="cityName" id="cityName" class="form-control" />
+          <input type="text" formControlName="cityName" id="cityName" class="form-control"
+                 [(ngModel)]="item!.cityName"/>
         </div>
         <div class="col-md-5">
           <em *ngIf="validateControl('cityName')
@@ -16,7 +17,8 @@
       <div class="mb-3 row">
         <label for="longitude" class="col-form-label col-md-2">Долгота: </label>
         <div class="col-md-5">
-          <input type="text" formControlName="longitude" id="longitude" class="form-control" />
+          <input type="text" formControlName="longitude" id="longitude" class="form-control"
+                 [(ngModel)]="item!.longitude"/>
         </div>
         <div class="col-md-5">
           <em *ngIf="validateControl('longitude')
@@ -26,7 +28,8 @@
       <div class="mb-3 row">
         <label for="latitude" class="col-form-label col-md-2">Широта: </label>
         <div class="col-md-5">
-          <input type="text" formControlName="latitude" id="latitude" class="form-control" />
+          <input type="text" formControlName="latitude" id="latitude" class="form-control"
+                 [(ngModel)]="item!.latitude"/>
         </div>
         <div class="col-md-5">
           <em *ngIf="validateControl('latitude')

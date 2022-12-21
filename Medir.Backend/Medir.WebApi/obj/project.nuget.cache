@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5lVYizrLYv9McCstFHL8SfU1bU7Nraq2rQF73/uCzn3bSfSQ8693S5ViebAPq03/h2HmCvuAMcnZ61VJRCC7xQ==",
+  "dgSpecHash": "vkxVfveOPlw4IpaNxAkdA0cWfU7SOzKOYCsulbjp57HSQgJzhVeBUqAbV4VzHZxDJjd79H/GhKGJZCetxLSF9g==",
   "success": true,
   "projectFilePath": "D:\\GitHub\\Medir\\Medir.Backend\\Medir.WebApi\\Medir.WebApi.csproj",
   "expectedPackageFiles": [
@@ -145,6 +145,7 @@
     "C:\\Users\\qqqqw\\.nuget\\packages\\nuget.projectmodel\\5.11.0\\nuget.projectmodel.5.11.0.nupkg.sha512",
     "C:\\Users\\qqqqw\\.nuget\\packages\\nuget.protocol\\5.11.0\\nuget.protocol.5.11.0.nupkg.sha512",
     "C:\\Users\\qqqqw\\.nuget\\packages\\nuget.versioning\\6.2.1\\nuget.versioning.6.2.1.nupkg.sha512",
+    "C:\\Users\\qqqqw\\.nuget\\packages\\piotrtrojan.aspnetcore.identityerrorlocalization.ru-ru\\1.0.7\\piotrtrojan.aspnetcore.identityerrorlocalization.ru-ru.1.0.7.nupkg.sha512",
     "C:\\Users\\qqqqw\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\qqqqw\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\qqqqw\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

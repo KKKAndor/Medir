@@ -1292,3 +1292,4 @@ D:\GitHub\Medir\Medir.Backend\Medir.WebApi\bin\Debug\net6.0\NETCore.MailKit.dll
 D:\GitHub\Medir\Medir.Backend\Medir.WebApi\bin\Debug\net6.0\BouncyCastle.Crypto.dll
 D:\GitHub\Medir\Medir.Backend\Medir.WebApi\bin\Debug\net6.0\EmailService.dll
 D:\GitHub\Medir\Medir.Backend\Medir.WebApi\bin\Debug\net6.0\EmailService.pdb
+D:\GitHub\Medir\Medir.Backend\Medir.WebApi\bin\Debug\net6.0\PiotrTrojan.AspNetCore.IdentityErrorLocalization.ru-RU.dll

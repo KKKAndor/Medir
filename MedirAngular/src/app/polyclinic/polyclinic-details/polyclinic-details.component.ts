@@ -17,7 +17,7 @@ export class PolyclinicDetailsComponent implements OnInit {
   item: PolyclinicDetailsVm | null | undefined;
 
   constructor(private repository: PolyclinicsRepositoryService,
-              private citRepository: CitiesRepositoryService,
+              private cityRepository: CitiesRepositoryService,
               private router: Router,
               private activeRoute: ActivatedRoute,
               private errorHandler: ErrorHandlerService) { }
@@ -32,7 +32,7 @@ export class PolyclinicDetailsComponent implements OnInit {
       .subscribe({
         next: (it: PolyclinicDetailsVm) => {
           this.item = it
-          this.citRepository.getCity(it.cityId)
+          this.cityRepository.getCity(it.cityId)
             .subscribe({
               next: (cit: CityLookUpDto) =>{
                 this.item!.city = cit;

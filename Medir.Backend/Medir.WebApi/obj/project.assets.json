@@ -2976,6 +2976,18 @@
           }
         }
       },
+      "PiotrTrojan.AspNetCore.IdentityErrorLocalization.ru-RU/1.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Identity.Core": "5.0.12"
+        },
+        "compile": {
+          "lib/net5.0/PiotrTrojan.AspNetCore.IdentityErrorLocalization.ru-RU.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/PiotrTrojan.AspNetCore.IdentityErrorLocalization.ru-RU.dll": {}
+        }
+      },
       "Portable.BouncyCastle/1.9.0": {
         "type": "package",
         "compile": {
@@ -8694,6 +8706,18 @@
         "nuget.versioning.nuspec"
       ]
     },
+    "PiotrTrojan.AspNetCore.IdentityErrorLocalization.ru-RU/1.0.7": {
+      "sha512": "r19B34eNMoRjmnKgiFVchogJW0T4Frr6Sydi28eVF61e29JNmUkPxq0cbnflIEwQHupkHUBTzdFLsP+kSq/Vpg==",
+      "type": "package",
+      "path": "piotrtrojan.aspnetcore.identityerrorlocalization.ru-ru/1.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/PiotrTrojan.AspNetCore.IdentityErrorLocalization.ru-RU.dll",
+        "piotrtrojan.aspnetcore.identityerrorlocalization.ru-ru.1.0.7.nupkg.sha512",
+        "piotrtrojan.aspnetcore.identityerrorlocalization.ru-ru.nuspec"
+      ]
+    },
     "Portable.BouncyCastle/1.9.0": {
       "sha512": "eZZBCABzVOek+id9Xy04HhmgykF0wZg9wpByzrWN7q8qEI0Qen9b7tfd7w8VA3dOeesumMG7C5ZPy0jk7PSRHw==",
       "type": "package",
@@ -13187,6 +13211,7 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.10",
       "NSwag.AspNetCore >= 13.17.0",
       "Newtonsoft.Json >= 13.0.1",
+      "PiotrTrojan.AspNetCore.IdentityErrorLocalization.ru-RU >= 1.0.7",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -13299,6 +13324,10 @@
             "target": "Package",
             "version": "[13.0.1, )"
           },
+          "PiotrTrojan.AspNetCore.IdentityErrorLocalization.ru-RU": {
+            "target": "Package",
+            "version": "[1.0.7, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.4.0, )"
@@ -13323,7 +13352,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

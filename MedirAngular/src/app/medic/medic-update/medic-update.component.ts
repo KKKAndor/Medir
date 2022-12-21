@@ -14,6 +14,8 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 export class MedicUpdateComponent implements OnInit {
 
+  item!: MedicDetailsVm | null;
+
   response!: {dbPath: ''};
 
   form!: FormGroup;
@@ -22,6 +24,14 @@ export class MedicUpdateComponent implements OnInit {
               private router: Router, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const id: string = this.activeRoute.snapshot.params['id'];
+    this.repository.getMedic(id)
+      .subscribe({
+        next: (it: MedicDetailsVm) => this.item = it,
+        error: (err: HttpErrorResponse) => {
+          this.errorHandler.handleError(err);
+        }
+      })
     this.form = new FormGroup({
       medicFullName: new FormControl('', [Validators.required, Validators.maxLength(100)]),
       shortDescription: new FormControl('', [Validators.required, Validators.maxLength(100)]),

@@ -4,7 +4,8 @@
       <div class="mb-3 row">
         <label for="polyclinicName" class="col-form-label col-md-2">Название поликлиники: </label>
         <div class="col-md-5">
-          <input type="text" formControlName="polyclinicName" id="polyclinicName" class="form-control" />
+          <input type="text" formControlName="polyclinicName" id="polyclinicName" class="form-control"
+                 [(ngModel)]="item!.polyclinicName"/>
         </div>
         <div class="col-md-5">
           <em *ngIf="validateControl('polyclinicName')
@@ -17,7 +18,8 @@
         <label for="cityId" class="col-form-label col-md-2">Город: </label>
         <div class="col-md-5">
           <select (change)="changed($event)" formControlName="cityId" id="cityId" class="form-control">
-            <option *ngFor="let cityLookUpDto of Cities" [value]="cityLookUpDto.cityId">
+            <option *ngFor="let cityLookUpDto of Cities" [value]="cityLookUpDto.cityId"
+                [defaultSelected]="cityLookUpDto == item!.city">
               {{cityLookUpDto.cityName}}
             </option>
           </select>
@@ -30,7 +32,8 @@
       <div class="mb-3 row">
         <label for="polyclinicAddress" class="col-form-label col-md-2">Адресс поликлиники: </label>
         <div class="col-md-5">
-          <input type="text" formControlName="polyclinicAddress" id="polyclinicAddress" class="form-control" />
+          <input type="text" formControlName="polyclinicAddress" id="polyclinicAddress" class="form-control"
+                 [(ngModel)]="item!.polyclinicAddress"/>
         </div>
         <div class="col-md-5">
           <em *ngIf="validateControl('polyclinicAddress')
@@ -40,7 +43,8 @@
       <div class="mb-3 row">
         <label for="longitude" class="col-form-label col-md-2">Долгота: </label>
         <div class="col-md-5">
-          <input type="text" formControlName="longitude" id="longitude" class="form-control" />
+          <input type="text" formControlName="longitude" id="longitude" class="form-control"
+                 [(ngModel)]="item!.longitude"/>
         </div>
         <div class="col-md-5">
           <em *ngIf="validateControl('longitude')
@@ -50,7 +54,8 @@
       <div class="mb-3 row">
         <label for="latitude" class="col-form-label col-md-2">Широта: </label>
         <div class="col-md-5">
-          <input type="text" formControlName="latitude" id="latitude" class="form-control" />
+          <input type="text" formControlName="latitude" id="latitude" class="form-control"
+                 [(ngModel)]="item!.latitude"/>
         </div>
         <div class="col-md-5">
           <em *ngIf="validateControl('latitude')
@@ -60,7 +65,8 @@
       <div class="mb-3 row">
         <label for="polyclinicPhoneNumber" class="col-form-label col-md-2">Номер поликлиники: </label>
         <div class="col-md-5">
-          <input type="text" formControlName="polyclinicPhoneNumber" id="polyclinicPhoneNumber" class="form-control" />
+          <input type="text" formControlName="polyclinicPhoneNumber" id="polyclinicPhoneNumber" class="form-control"
+                 [(ngModel)]="item!.polyclinicPhoneNumber"/>
         </div>
         <div class="col-md-5">
           <em *ngIf="validateControl('polyclinicPhoneNumber')

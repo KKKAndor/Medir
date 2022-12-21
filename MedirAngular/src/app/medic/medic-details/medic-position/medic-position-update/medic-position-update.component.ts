@@ -6,6 +6,7 @@ import {ErrorHandlerService} from "../../../../shared/services/error-handler.ser
 import {HttpErrorResponse} from "@angular/common/http";
 import {CreateMedicPositionDto} from "../../../../_interfaces/medicposition/CreateMedicPositionDto";
 import {UpdateMedicPositionDto} from "../../../../_interfaces/medicposition/UpdateMedicPositionDto";
+import {MedicPositionDetailsVm} from "../../../../_interfaces/medicposition/MedicPositionDetailsVm";
 
 @Component({
   selector: 'app-medic-position-update',
@@ -14,7 +15,11 @@ import {UpdateMedicPositionDto} from "../../../../_interfaces/medicposition/Upda
 })
 export class MedicPositionUpdateComponent implements OnInit {
 
-  id: string | undefined;
+  item!: MedicPositionDetailsVm | null;
+
+  medicId: string | undefined;
+
+  dateOn: string| undefined;
 
   form!: FormGroup;
 
@@ -28,10 +33,18 @@ export class MedicPositionUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activeRoute.queryParams
       .subscribe(params => {
-          this.id = params['medicId'];
+          this.medicId = params['medicId'];
           this.positionId = params['positionId'];
         }
       );
+    this.repository.getMedicPosition(this.medicId, this.positionId)
+      .subscribe({
+        next: (it: MedicPositionDetailsVm) => this.item = it,
+        error: (err: HttpErrorResponse) => {
+          this.errorHandler.handleError(err);
+        }
+      })
+    this.dateOn = this.item?.dateOnPosition.toString();
 
     this.form = new FormGroup({
       dateOnPosition: new FormControl('', [Validators.required])
@@ -49,7 +62,7 @@ export class MedicPositionUpdateComponent implements OnInit {
 
   updateMedicPosition = (FormValue: any) => {
     const item: UpdateMedicPositionDto = {
-      medicId: this.id!,
+      medicId: this.medicId!,
       positionId: this.positionId!,
       dateOnPosition: FormValue.dateOnPosition
     }
@@ -62,7 +75,7 @@ export class MedicPositionUpdateComponent implements OnInit {
   }
 
   redirectToMedic = () => {
-    const redirectUrl: string = `../medic/medic-details/${this.id}`;
+    const redirectUrl: string = `../medic/medic-details/${this.medicId}`;
     this.router.navigate([redirectUrl]);
   }
 }

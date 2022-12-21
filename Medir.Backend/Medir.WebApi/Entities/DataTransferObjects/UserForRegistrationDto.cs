@@ -67,13 +67,13 @@ namespace Medir.WebApi.Entities.DataTransferObjects
         [RegexStringValidator(@"^\d$")]
         public string? PolyceNumber { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Укажите пароль")]
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
         [StringLength(100, ErrorMessage = "Поле {0} должно иметь минимум {2} и максимум {1} символов.", MinimumLength = 5)]
         public string? Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Укажите пароль повторно")]
         [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         [DataType(DataType.Password)]
         [Display(Name = "Подтвердить пароль")]

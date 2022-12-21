@@ -4,7 +4,8 @@
       <div class="mb-3 row">
         <label for="positionName" class="col-form-label col-md-2">Название специальности: </label>
         <div class="col-md-5">
-          <input type="text" formControlName="positionName" id="positionName" class="form-control" />
+          <input type="text" formControlName="positionName" id="positionName" class="form-control"
+                 [(ngModel)]="item!.positionName"/>
         </div>
         <div class="col-md-5">
           <em *ngIf="validateControl('positionName')

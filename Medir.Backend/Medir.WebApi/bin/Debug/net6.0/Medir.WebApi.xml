@@ -547,7 +547,7 @@
             <response code="200">Success</response>
             <response code="401">User is unauthorized</response>
         </member>
-        <member name="M:Medir.WebApi.Controllers.UserController.CreateAppointment(Medir.WebApi.Models.CreateAppointmentDto)">
+        <member name="M:Medir.WebApi.Controllers.UserController.CreateAppointment(Medir.WebApi.Entities.Models.CreateAppointmentDto)">
             <summary>
             Creates the Appointment
             </summary> 

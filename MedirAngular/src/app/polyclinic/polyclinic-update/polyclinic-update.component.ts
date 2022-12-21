@@ -19,6 +19,8 @@ import { UpdatePolyclinicDto } from 'src/app/_interfaces/polyclinics/UpdatePolyc
 })
 export class PolyclinicUpdateComponent implements OnInit {
 
+  item: PolyclinicDetailsVm | null | undefined;
+
   response!: {dbPath: ''};
 
   form!: FormGroup;
@@ -34,6 +36,18 @@ export class PolyclinicUpdateComponent implements OnInit {
               private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    const id: string = this.activeRoute.snapshot.params['id'];
+    this.repository.getPolyclinic(id)
+      .subscribe({
+        next: (it: PolyclinicDetailsVm) => {
+          this.item = it
+        },
+        error: (err: HttpErrorResponse) => {
+          this.errorHandler.handleError(err);
+        }
+      })
+
     this.citiesRepositoryService.getAllCities()
       .subscribe(value => this.Cities = value.cities);
 
@@ -45,6 +59,9 @@ export class PolyclinicUpdateComponent implements OnInit {
       latitude: new FormControl('', [Validators.required]),
       longitude: new FormControl('', [Validators.required])
     });
+  }
+  public createImgPath = (serverPath: string) => {
+    return `https://localhost:7192/${serverPath}`;
   }
 
 

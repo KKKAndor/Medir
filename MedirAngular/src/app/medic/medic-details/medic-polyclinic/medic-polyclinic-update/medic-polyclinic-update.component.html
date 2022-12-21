@@ -4,7 +4,8 @@
       <div class="mb-3 row">
         <label for="price" class="col-form-label col-md-2">Цена приема: </label>
         <div class="col-md-5">
-          <input type="text" formControlName="price" id="price"  class="form-control"/>
+          <input type="text" formControlName="price" id="price"  class="form-control"
+                 [(ngModel)]="item!.price"/>
         </div>
         <div class="col-md-5">
           <em *ngIf="validateControl('price')

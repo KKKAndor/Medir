@@ -35,7 +35,8 @@ namespace Medir.WebApi.Repository
                     LastName = "Admin2",
                     Patronymic = "Admin3",
                     PhoneNumber = "77718821",
-                    Gender = "male"
+                    Gender = "male",
+                    Registered = true
                 };
 
                 var result = await userManager.CreateAsync(admin, password);

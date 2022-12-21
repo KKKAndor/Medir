@@ -14,12 +14,23 @@ import {HttpErrorResponse} from "@angular/common/http";
   styleUrls: ['./city-update.component.css']
 })
 export class CityUpdateComponent implements OnInit {
+
+  item!: CityDetailsVm | null;
+
   form!: FormGroup;
 
   constructor(private repository: CitiesRepositoryService, private errorHandler: ErrorHandlerService,
               private router: Router, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const id: string = this.activeRoute.snapshot.params['id'];
+    this.repository.getCity(id)
+      .subscribe({
+        next: (it: CityDetailsVm) => this.item = it,
+        error: (err: HttpErrorResponse) => {
+          this.errorHandler.handleError(err);
+        }
+      })
     this.form = new FormGroup({
       cityName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       latitude: new FormControl('', [Validators.required]),
